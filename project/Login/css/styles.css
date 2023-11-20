@@ -74,8 +74,8 @@ body {
 .login .formLoginContainer .formLogin form input{
     padding: 5px;
     margin: 10px;
-    border: 2px solid;
-
+    border: none;
+    border-bottom: 1px solid #e66465;
 }
 
 .login .formLoginContainer .formLogin form input[type="submit"]{
