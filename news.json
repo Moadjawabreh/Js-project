@@ -1,0 +1,26 @@
+'{
+  "sample":[
+    {
+      "description":"OpenAI’s fired CEO Sam Altman to join Microsoft",
+      "image-url":"https://www.aljazeera.com/wp-content/uploads/2023/11/2023-05-16T143040Z_423692862_RC2QZ0AUCU1O_RTRMADP_3_USA-AI-CONGRESS-1700462555.jpg?resize=770%2C513&quality=80"
+    },
+    {
+      "description":"‘Out of control’ fires endanger wildlife in Brazil’s Pantanal wetlands",
+      "image-url":"https://www.aljazeera.com/wp-content/uploads/2023/11/343K8RW-highres-1700422585.jpg"
+    },
+    {
+      "description":"Photos: Head breaks India hearts as Australia win sixth World Cup title",
+      "image-url":"https://www.aljazeera.com/wp-content/uploads/2023/11/2023-11-19T165916Z_681108936_UP1EJBJ1B6PVQ_RTRMADP_3_CRICKET-WORLDCUP-IND-AUS-1700413267.jpg"
+    },
+    {
+      "description":"World Cup 2022 updates: Spain’s Gavi makes history",
+      "image-url":"https://www.aljazeera.com/wp-content/uploads/2022/11/2022-11-23T174433Z_294352935_UP1EIBN1DA7EA_RTRMADP_3_SOCCER-WORLDCUP-ESP-CRI-REPORT.jpg?resize=570%2C380&quality=80"
+    },
+    {
+      "description":"Japan seeking talks with Houthi hijackers of Red Sea Israeli-linked ship",
+      "image-url":"https://www.aljazeera.com/wp-content/uploads/2023/11/2022-01-03T181953Z_1202213461_RC2URR9X1XPF_RTRMADP_3_YEMEN-SECURITY-SHIP-1700466760.jpg?resize=770%2C513&quality=80"
+    }
+    
+  ]
+
+}'
