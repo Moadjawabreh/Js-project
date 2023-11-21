@@ -65,3 +65,8 @@ background-color: rgb(222, 222, 222);
 transform: scale(1.05);
 border: 1px solid #00365c;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}

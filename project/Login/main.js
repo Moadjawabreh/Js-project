@@ -3,11 +3,9 @@ const adminUser=[{
     firstName:"Abedelhameed",
     lastName:"Alshorafa",
     email:"abedelhameedalshorafa123@yahoo.com",
-    supervisor:"",
     password:"Abed848419",
     age:25,
-    feedback:"",
-    type:"teamLeader"
+    type:"superAdmin"
 }]
 
 let count=1;
@@ -39,9 +37,9 @@ forLogin=()=>{
         if(user.email===email && user.password === password)
         {
             localStorage.setItem("liveUser",JSON.stringify(user));
-            if(user.type==="adminUser")
+            if(user.type==="superAdmin")
             {
-                window.open("G:\OrangeTasks\Js-project\project\Profile")
+                window.open("G:\OrangeTasks\Js-project\project\Profile");
             }
             if(user.type==="trainer")
             {
@@ -49,13 +47,11 @@ forLogin=()=>{
             }
             break;
         }
-    }
-
-    let userNotFound=document.getElementById("userNotFound");
-
-    if(!localStorage.getItem("liveUser"))
-    {
-        userNotFound.style.display="";
+        else
+        {
+            let userNotFound=document.getElementById("userNotFound");
+            userNotFound.style.display="";
+        }
     }
 }
 
