@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    background: linear-gradient(170deg , #92c9f0, #6478ec);
+}
+
+.profile .boxLogo {
+    width: 60%;
+    height: 20%;
+    background-color: #ecf0f1;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.profile .boxLogo .imageContainer {
+    display: flex;
+    align-items: center;
+}
+
+.profile .boxLogo .imageLogo {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.profile .boxLogo div {
+    margin-left: 20px; /* Add margin for separation */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.profile .boxLogo div p {
+    font-size: 20px;
+    margin-top: 10px; /* Adjusted margin for better spacing */
+}
+
+.profile .boxLogo .profilePhoto {
+    padding: 15px;
+    margin: 10px;
+    font-size: 1em;
+    background-color: #2ecc71; /* Updated color to a shade of green */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.informationUser {
+    padding: 30px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1; /* Updated color to a light gray */
+    border-radius: 10px;
+}
+
+.informationUser p {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333; /* Updated color to a dark gray */
+}
+
+.informationUser form {
+    width: 100%;
+    max-width: 400px; /* Added max-width for better responsiveness */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.informationUser form div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.informationUser form div input {
+    width: 48%; /* Adjusted width for better spacing */
+    padding: 12px;
+    border: 1px solid #bdc3c7; /* Added border for better separation */
+}
+
+.informationUser form input[type="submit"] {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Added a smooth transition */
+}
+
+.informationUser form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
