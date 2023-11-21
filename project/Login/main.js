@@ -10,6 +10,9 @@ const adminUser=[{
     type:"teamLeader"
 }]
 
+let count=1;
+localStorage.setItem("count",count);
+
 if(!localStorage.getItem("users"))
 {   
     const JsonData=JSON.stringify(adminUser);
