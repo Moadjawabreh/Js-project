@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateNews();
 
   // Set interval to update news every 4 seconds
-  setInterval(updateNews, 4000000);
+  setInterval(updateNews, 4000);
 
   // Event listeners for adding notes
   let addNoteButton = document.getElementById('addNote');
