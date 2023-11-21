@@ -44,15 +44,15 @@
     width: 100%;
     border: none;
     border-radius: 2px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(222, 222, 222);
 }
 
 
 .register .formContainer input[type="submit"] {
-    background-color:#0e4267 ;
-    color: #b8b7b7;
+    background-color:#00365c ;
+    color: #ffffff;
     font-size: 1em;
-    text-transform: 2px;
-    width: 30%;
+    letter-spacing: 1px;
+    width: 50%;
     cursor: pointer;
 }
