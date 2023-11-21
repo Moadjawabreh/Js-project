@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
       textContent.style.color = ' #fff'
       textContent.style.backgroundColor = 'red'
       textContent.style.padding = '8px'
+      textContent.style.borderRadius = '8px'
+      textContent.style.position = 'absolute'
+      textContent.style.bottom = '0px'
 
       textContent.textContent = newsObject.sample[currentIndex].description;
 
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateNews();
 
   // Set interval to update news every 4 seconds
-  setInterval(updateNews, 4000);
+  setInterval(updateNews, 4000000);
 
   // Event listeners for adding notes
   let addNoteButton = document.getElementById('addNote');
