@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
       textContent.style.color = ' #fff'
       textContent.style.backgroundColor = 'red'
       textContent.style.padding = '8px'
+      textContent.style.borderRadius = '8px'
+      textContent.style.position = 'absolute'
+      textContent.style.bottom = '0px'
 
       textContent.textContent = newsObject.sample[currentIndex].description;
 
