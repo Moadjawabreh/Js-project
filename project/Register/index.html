@@ -11,16 +11,30 @@
         <div class="formContainer">
             <h2>Add trainer</h2>
             <form action="" id="formRegister">
+
                 <label for="firstName">firstName</label>
                 <input type="text" name="firstName" id="firstName">
+                <div id="firstNameError" class="error-message"></div>
+
                 <label for="lastName">lastName</label>
                 <input type="text" name="lastName" id="lastName">
+                <div id="lastNameError" class="error-message"></div>
+
                 <label for="email">email</label>
                 <input type="text" name="email" id="email">
+                <div id="emailError" class="error-message"></div>
+
                 <label for="password">password</label>
                 <input type="text" name="password" id="password">
-                <label for="passwordCon">passwordCon</label>
-                <input type="text" name="passwordCon" id="passwordCon">
+                <div id="passwordError" class="error-message"></div>
+
+                <label for="confirmPassword">passwordCon</label>
+                <input type="text" name="confirmPassword" id="confirmPassword">
+                <div id="confirmPasswordError" class="error-message"></div>
+
+                <label for="age">age</label>
+                <input type="number" name="age" id="age">
+
                 <input type="submit" id="submitRegister">
             </form>
         </div>
