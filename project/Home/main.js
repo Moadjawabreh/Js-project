@@ -79,7 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
       let noteText = noteInput.value.trim();
 
       if (noteText === '') {
-          alert('Please enter a note.'); 
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please enter a note.',
+        })
           return;
       }
 
