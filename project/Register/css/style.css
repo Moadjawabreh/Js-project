@@ -39,7 +39,7 @@
 .register .formContainer input {
     display: block;
     padding: 14px;
-    margin: 20px 0; /* Adjusted margin to provide space between input fields */
+    margin: 20px 0; 
     margin-top: 2px;
     width: 100%;
     border: none;
