@@ -1,0 +1,171 @@
+/* Global CSS reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Styling for the entire HTML and body */
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling for the main content container */
+.home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(64, 155, 245);
+}
+
+/* Styling for the header section */
+.home .headerTitle {
+    display: inline-block;
+    width: 80%;
+    padding: 30px;
+    border-bottom: 3px solid black;
+    margin-left: auto;
+}
+
+/* Styling for the header title */
+.home .headerTitle h2{
+    font-size: 2em;
+}
+
+/* Styling for the main content area */
+.home .contentHome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    margin-left: auto;
+}
+
+/* Styling for the news and note containers */
+.home .contentHome .new,
+.home .contentHome .note {
+    margin: 10px; 
+    padding: 20px; 
+    width: 60%;
+    height: 70%;
+    border-radius: 8px;
+}
+
+/* Styling for the new container */
+.home .contentHome .new {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px black;
+    padding: 0;
+}
+
+/* Styling for the note container */
+.home .contentHome .note {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px black;
+}
+
+/* Styling for the text container */
+.text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px; 
+    color: white; 
+}
+
+/* Styling for a new div element */
+.newDiv{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    position: relative;
+    border: none;
+}
+
+/* Styling for the note container within contentHome */
+.home .contentHome .noteContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+/* Styling for the note container with specific ID */
+#noteContainer {
+    max-width: 300px;
+    margin: 20px ;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the note input */
+#noteInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Styling for the Add Note button */
+#addNote {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Hover effect for the Add Note button */
+#addNote:hover {
+    background-color: #45a049;
+}
+
+/* Styling for the note list */
+#noteList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.deleteButton {
+    display: none;
+}
+
+/* Styling for list items within the note list */
+li {
+    margin-top: 6px ;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+li:hover .deleteButton {
+    display: inline-block; 
+}
+
+/* Styling for the delete button within a list item */
+.deleteButton {
+    background-color: #ffffff;
+    color: #080505;
+    border: none;
+    position: absolute;
+    border-radius: 4px;
+    top: 0;
+    right: 0;
+}
+
+/* Hover effect for the delete button */
+.deleteButton:hover {
+    background-color: #ff6666;
+    transform: scale(1.2);
+    transition: 0.3;
+}
