@@ -2,8 +2,8 @@ const adminUser=[{
     id:1,
     firstName:"Abedelhameed",
     lastName:"Alshorafa",
-    email:"abedelhameedalshorafa123@yahoo.com",
-    password:"Abed848419",
+    email:"m12@m12.com",
+    password:"1",
     age:25,
     type:"superAdmin"
 }]
@@ -39,11 +39,12 @@ forLogin=()=>{
             localStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
-                window.open("../Home/index.html");
+                window.open("https://moadjawabreh.github.io/Js-project/project/Home/index.html");
+                // window.location.href="../Home/index.html";
             }
             if(user.type==="trainer")
             {
-                window.open("../Home/index.html");
+                window.open("https://moadjawabreh.github.io/Js-project/project/Home/index.html");
             }
             break;
         }
