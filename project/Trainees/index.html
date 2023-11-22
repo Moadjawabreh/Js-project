@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Trainees Management</title>
+</head>
+
+<body>
+    <div class="trainees">
+        <div class="containerTrainees">
+            <div class="headerTitle">
+                <h1>Trainees Management</h1>
+            </div>
+            <div class="buttons">
+                <button class="btn" id="addStudent"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Student</button>
+                <div class="inputsStudent">
+                    <label for="studentName">student name: </label>
+                    <input type="text" id="studentName">
+                    <label for="StudentId">student id: </label>
+                    <input type="text" id="StudentId">
+                    <label for="task">task: </label>
+                    <input type="text" id="task">
+                    <label for="absent">absent: </label>
+                    <input type="text" id="absent">
+                </div>
+                <div class="addTask-feedback">
+                    <button class="btn" id="addTask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Task</button>
+                    <button class="btn" id="feedback"><i class="fa fa-plus-circle" aria-hidden="true"></i>Feedback</button>
+                </div>
+                <div class="inputs-sddTask-feedback">
+                    <input type="number">
+                </div>
+                <div class="btnSave">
+                    <button class="btn" id="save"><i class="fa fa-save" aria-hidden="true"></i>Save</button>
+                </div>
+                <div class="searchOptions">
+                    <button class="btn" id="searchByName"><i class="fa fa-search" aria-hidden="true"></i>Search By Name</button>
+                    <button class="btn" id="searchById"><i class="fa fa-search" aria-hidden="true"></i>Search By Id</button>
+                </div>
+            </div>
+            <div class="table-trainees">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Solved Task</th>
+                            <th>Total Task</th>
+                            <th>Absences</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <!-- Table content goes here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
