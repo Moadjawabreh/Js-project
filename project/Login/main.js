@@ -30,6 +30,8 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
+    
+    let form=document.getElementById("formLog");
 
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
@@ -39,11 +41,11 @@ forLogin=()=>{
             localStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
-                window.open("G:\OrangeTasks\Js-project\project\Profile");
+                window.location.href = '../Home/index.html';
             }
             if(user.type==="trainer")
             {
-                window.open("url");
+                window.location.href="../Home/index.html";
             }
             break;
         }

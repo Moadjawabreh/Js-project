@@ -12,21 +12,22 @@
             <h1>Welcome Page</h1>
         </div>
         <div class="formLoginContainer">
-            <div class="formLogin">
+            <div class="formLogin" >
                 <p>Hello !</p>
                 <p><strong>Welcome to our website</strong></p>
                 <form action="" id="formLog">
-                    <input type="email" placeholder="Email" id="emailLog">
-                    <input type="password" placeholder="Password" id="passwordLog">
+                    <input type="email" placeholder="Email" id="email">
+                    <input type="password" placeholder="Password" id="password">
                     <div>
                         <a href="">Forget Password</a>
                     </div>
-                    <input type="submit">
+                    <input type="submit" onclick="forLogin()" >
                     <p id="userNotFound" style="display: none;">user not found</p>
 
                 </form>
             </div>
         </div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
