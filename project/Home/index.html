@@ -8,9 +8,15 @@
     <meta name="keywords" content="">
     <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../layout/css/styles.css">
     <title>Document</title>
 </head>
 <body>
+    <!-- Include the common layout -->
+    <div id="layout-container">
+        <!-- The content of layout.html will be inserted here -->
+    
+    </div>
     <!-- Main content container -->
     <div class="home">
         <!-- Header section -->
@@ -35,5 +41,14 @@
     </div>
     <!-- JavaScript file -->
     <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- sweet alert  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        // Use jQuery to load the common layout
+        $(function () {
+            $("#layout-container").load("../layout/layout.html");
+        });
+    </script>
 </body>
 </html>

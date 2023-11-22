@@ -20,8 +20,8 @@ if(!localStorage.getItem("users"))
 forLogin=()=>{
     // for testing
 
-    let email=document.getElementById("email").value;
-    let password =document.getElementById("password").value;
+    let email=document.getElementById("emailLog").value;
+    let password =document.getElementById("passwordLog").value;
 
     // for displaying
 
@@ -41,16 +41,16 @@ forLogin=()=>{
             localStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
-                window.location.href = '../Home/index.html';
+                window.open("../Home/index.html");
             }
             if(user.type==="trainer")
             {
-                window.location.href="../Home/index.html";
+                window.open("../Home/index.html");
             }
             break;
         }
         else
-        {
+        { 
             let userNotFound=document.getElementById("userNotFound");
             userNotFound.style.display="";
         }

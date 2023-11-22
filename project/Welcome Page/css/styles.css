@@ -5,7 +5,7 @@
 }
 a{
     text-decoration: none;
-   
+    
 }
 html ,body{
     width: 100%;
@@ -14,9 +14,9 @@ html ,body{
 header{
     background-image: url(../img/safar-safarov-MSN8TFhJ0is-unsplash.jpg);
     background-size: cover;
-  background-position: initial;
-  width: 100vw; /* Set the width to the viewport width or any desired value */
-  height: 100vh;
+    background-position: initial;
+    width: 100vw; /* Set the width to the viewport width or any desired value */
+    height: 100vh;
     /* height: 100%;
     width: 100%; */
     display: flex;
