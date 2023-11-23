@@ -36,7 +36,7 @@ forLogin=()=>{
     {
         if(user.email===email && user.password === password)
         {
-            localStorage.setItem("liveUser",JSON.stringify(user));
+            sessionStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
                

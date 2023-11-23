@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../layout/css/styles.css">
+
 </head>
 <body>
-
+    <div id="layout-container">
+        <!-- The content of layout.html will be inserted here -->
+    
+    </div>
 <div class="profile">
     <div class="boxLogo">
         <div class="imageContainer">
@@ -30,12 +35,12 @@
                 <input type="text" name="" id="email" placeholder="Email">
             </div>
             <div>
-                <input type="text" name="" id="address" placeholder="Address">
+                <input type="text" name="" id="password" placeholder="Password">
                 <input type="text" name="" id="city" placeholder="City">
             </div>
             <div>
                 <input type="text" name="" id="phoneNumber" placeholder="Phone Number">
-                <input type="text" name="" id="dataOf Birth" placeholder="Date of Birth">
+                <input type="text" name="" id="age" placeholder="Age">
             </div>
             <input type="submit" id="submitPrifile" value="Submit">
         </form>
@@ -43,5 +48,14 @@
 </div>
 
 <script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    // Use jQuery to load the common layout
+    $(function () {
+        $("#layout-container").load("../layout/layout.html");
+    });
+</script>
+
 </body>
 </html>
