@@ -42,3 +42,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+/// abed ///
+
+addingForStudent=()=>{
+    let count=1;
+    localStorage.setItem("countForStudents",count);   
+    
+    let id=count;
+    let name=document.getElementById("name").value;
+    let solvedTasks=0;
+    let totalTasks=document.getElementById("tasks").value;
+    let obsence=document.getElementById("x").value;
+
+    /// validation
+
+
+    if(!localStorage.getItem("students"))
+    {
+        const students=[{
+            id,
+            name,
+            solvedTasks,
+            totalTasks,
+            x
+        }];
+
+        localStorage.setItem("students",JSON.stringify(students));
+    }
+    else
+    {
+        const student={
+            name,
+            attendence,
+            tasks,
+            x
+        };
+        const students=JSON.parse(localStorage.getItem("students"));
+        students.push(student);
+        localStorage.setItem("students",JSON.stringify(students));
+    }
+}
+
+
+

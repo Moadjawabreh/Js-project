@@ -31,14 +31,14 @@ forLogin=()=>{
     
     // validation if you need 
     
-    let form=document.getElementById("formLog");
+    // let form=document.getElementById("formLog");
 
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {
         if(user.email===email && user.password === password)
         {
-            localStorage.setItem("liveUser",JSON.stringify(user));
+            sessionStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
                 window.open("../Home/index.html");
