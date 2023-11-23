@@ -33,13 +33,13 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
-<<<<<<< HEAD
+
     
     // let form=document.getElementById("formLog");
 
-=======
+
     let formLog=document.getElementById("formLog")
->>>>>>> main
+
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {
@@ -63,4 +63,19 @@ forLogin=()=>{
         }
     }
 }
+
+let forgetPassword = document.getElementById("ForgetPassword");
+let inputEmail = document.getElementById("emailLog");
+let users = JSON.parse(localStorage.getItem("users"));
+
+forgetPassword.addEventListener("click", function () {
+    for (let i = 0; i < users.length; i++) { 
+        if (inputEmail.value === users[i].email) { // Compare inputEmail.value with users[i].email
+            Swal.fire(`Password for ${users[i].email}: ${users[i].password}`);
+            return;
+        }
+    }
+    Swal.fire("Email not found in the user list");
+});
+
 
