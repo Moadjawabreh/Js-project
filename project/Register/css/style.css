@@ -11,61 +11,74 @@ html, body{
 }
 
 .register{
-    width: 100%;
+    background-image: url(../img/wh.jpg);
     height: 100%;
-    display: grid;
-    place-items: center;
-
-    background: linear-gradient(170deg , #92c9f0, #6478ec);
-
-}
-
-.register .formContainer {
-    width: 30%;
-    height: 80%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-size: cover  ;
+    position: center;
 }
-.register .formContainer h2{
-    color: #30264f;
-}
-.register .formContainer form{
-    width: 100%;
-    padding: 10px;
-}
-.register .formContainer input {
-    display: block;
-    padding: 14px;
-    margin: 20px 0; 
-    margin-top: 2px;
-    width: 100%;
-    border: none;
-    border-radius: 4px;
-    background-color: rgb(222, 222, 222);
+/* Form container */
+.formContainer{
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 500px;
+  margin: 50px auto;
 }
 
-
-.register .formContainer input[type="submit"] {
-    background-color:#00365c ;
-    color: #ffffff;
-    font-size: 1em;
-    letter-spacing: 1px;
-    width: 50%;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: .4s;
+/* Title */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.register .formContainer input[type="submit"]:hover{
-color: #00365c;
-background-color: rgb(222, 222, 222);
-transform: scale(1.05);
-border: 1px solid #00365c;
+/* Labels */
+label {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+  display: block;
 }
 
+/* Input fields */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Input fields on focus */
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Error messages */
 .error-message {
-    color: red;
-    font-size: 12px;
+  font-size: 12px;
+  color: red;
+  margin-bottom: 5px;
+}
+
+/* Submit button */
+#submitRegister {
+  background-color: #007bff;
+  color: white;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#submitRegister:hover {
+  background-color: #0069d9;
 }
