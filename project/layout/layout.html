@@ -14,12 +14,14 @@
             grid-template-columns: 12% auto;
         }
 
+
         .navbar {
             background-color: #007bff;
             padding: 15px;
             height: 100vh;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease-in-out;
         }
 
         .nav-item {
@@ -56,11 +58,33 @@
         }
 
         .nav-item:hover,
-        .nav-item.active {
+        .active {
             background-color: #0056b3;
             border-bottom: 2px solid white;
             border-radius: 5%;
-            padding-bottom: -2px;
+        }
+        .navbar-hidden {
+            transform: translateX(-100%);
+        }
+
+        .btn{
+            position: fixed;
+            left: 12%;
+        }
+
+        /* Button style */
+        .toggle-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            height: 100vh;
+            font-size: 1em;
+        }
+
+        .newPostion{
+            left: 0;
         }
 
     </style>
@@ -71,47 +95,77 @@
         <div class="nav-item">
             <img alt="img" src="">
         </div>
-        <div class="nav-item active">
-            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-            <a href="../home/index.html">Home</a>
-        </div>
         <div class="nav-item">
-            <i class="fa-solid fa-users" style="color: #ffffff;"></i>
-            <a id="studentORTrener" href="../Trainees/index.html">Students</a>
+            <a href="../home/index.html">
+                <i class="fa-solid fa-house" style="color: #ffffff;margin-right: 3px;"></i>
+                Home
+            </a>
         </div>
+        
         <div class="nav-item">
-            <i class="fa-regular fa-comment" style="color: #ffffff;"></i>
-            <a href="#">Feadback</a>
+            <a id="studentORTrener" href="../Trainees/index.html">
+                <i class="fa-solid fa-users" style="color: #ffffff;margin-right: 3px;"></i>
+                Students
+            </a>
         </div>
+        
         <div class="nav-item">
-            <i class="fa-solid fa-user" style="color: #ffffff;"></i>
-            <a href="../Profile/index.html">Profile</a>
+            <a href="../Feedback/index.html">
+                <i class="fa-regular fa-comment" style="color: #ffffff;margin-right: 3px;"></i>
+                Feedback
+            </a>
         </div>
+        
         <div class="nav-item">
-        <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
-        <a href="../Login/index.html">log Out</a>
+            <a href="../Profile/index.html">
+                <i class="fa-solid fa-user" style="color: #ffffff;margin-right: 3px;"></i>
+                Profile
+            </a>
         </div>
+        
+        <div class="nav-item">
+            <a href="../Login/index.html">
+                <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;margin-right: 3px;"></i>
+                Log Out
+            </a>
+        </div>
+
     </div>
-    <script>
+    <div><button class="toggle-button btn" id="btn" onclick="toggleNavbar()"><</button></div>
+    
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function toggleNavbar() {
+            let navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('navbar-hidden');
+            let btn = document.getElementById("btn");
+            btn.classList.toggle('newPostion');
+            btn.textContent = btn.textContent === '<' ? '>' : '<';
+        }
+
         let navItems = document.querySelectorAll('.nav-item');
 
-            navItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    // Remove 'active' class from all items
-                    navItems.forEach(navItem => navItem.classList.remove('active'));
+        navItems.forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove 'active' class from all items
+                navItems.forEach(navItem => navItem.classList.remove('active'));
 
-                    // Add 'active' class to the clicked item
-                    item.classList.add('active');
-                });
+                // Add 'active' class to the clicked item
+                item.classList.add('active');
             });
+        });
+
         let studentORTrener = document.getElementById("studentORTrener");
         let liveUser = JSON.parse(localStorage.getItem("liveUser"));
+
         if (liveUser && liveUser.type === "superAdmin") {
             studentORTrener.textContent = "Trainers";
             studentORTrener.setAttribute("href", "../Trainers/index.html");
         }
+    });
+</script>
 
-    </script>
 </body>
 
 </html>
