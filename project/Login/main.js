@@ -39,7 +39,6 @@ forLogin=()=>{
             localStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
-               
                 formLog.action="../Home/index.html";
             }
             if(user.type==="trainer")
