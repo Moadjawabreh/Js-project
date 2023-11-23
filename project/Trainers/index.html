@@ -6,31 +6,47 @@
     <title>Document</title>
     <link rel="stylesheet" href="../layout/css/styles.css">
     <link rel="stylesheet" href="style/style.css">
-
 </head>
 <body>
 
     <div id="layout-container">
         <!-- The content of layout.html will be inserted here -->
-    
+
     </div>
 
-    <div class="container">
-        <div class="title_container"><div class="title"></div>
-        
-
+    <div class="trainers">
+        <div class="containerTrainers">
+            <div class="headerTitle">
+                <h1>Trainers Management</h1>
+            </div>
+            <div class="buttons">
+                <button class="btn" id="addTrainers"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Trainer</button>
+                <div class="searchOptions">
+                    <button class="btn" id="searchByName"><i class="fa fa-search" aria-hidden="true"></i>Search By Name</button>
+                    <button class="btn" id="searchById"><i class="fa fa-search" aria-hidden="true"></i>Search By Id</button>
+                </div>
+            </div>
+            <div class="table-trainees">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <!-- Table content goes here -->
+                        <tr>
+                            <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         // Use jQuery to load the common layout
