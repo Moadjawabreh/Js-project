@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../layout/css/styles.css">
+    <title>Feedback</title>
 </head>
-<body>
 
+<body>
     <div id="layout-container">
         <!-- The content of layout.html will be inserted here -->
-
     </div>
-
-    <div class="trainers">
-        <div class="containerTrainers">
+    <div class="Feedback">
+        <div class="containerFeedback">
             <div class="headerTitle">
-                <h1>Trainers Management</h1>
+                <h1>Feedback</h1>
             </div>
-            <div class="buttons">
-                <button class="btn" id="addTrainers"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Trainer</button>
                 <div class="searchOptions">
                     <button class="btn" id="searchByName"><i class="fa fa-search" aria-hidden="true"></i>Search By Name</button>
                     <button class="btn" id="searchById"><i class="fa fa-search" aria-hidden="true"></i>Search By Id</button>
                 </div>
-            </div>
-            <div class="table-trainees">
+            <div class="table-Feedback">
                 <table>
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>Delete</th>
+                            <th>Student Name</th>
+                            <th>Trener Name</th>
+                            <th>Feedback</th>
+                            <th>Date</th>
                         </tr>
-                    </thead>
-                    <tbody id="tbody">
-                        <!-- Table content goes here -->
                         <tr>
                             <td>d</td>
                             <td>d</td>
                             <td>d</td>
+                            <td>d</td>
+                            <td>d</td>
                         </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <!-- Table content goes here -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="main.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         // Use jQuery to load the common layout
@@ -55,4 +59,5 @@
     </script>
 
 </body>
+
 </html>

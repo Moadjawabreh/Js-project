@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
       textContent.style.borderRadius = '8px'
       textContent.style.position = 'absolute'
       textContent.style.bottom = '0px'
+      textContent.style.width = '100%'
+      textContent.style.width = '100%'
 
       textContent.textContent = newsObject.sample[currentIndex].description;
 

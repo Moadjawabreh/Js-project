@@ -5,7 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 18% auto;
+}
+
+.navbar {
+    background-color: #007bff;
+    padding: 15px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    margin: 5% 1px;
+}
+
+
+.nav-item a,
+.nav-item i {
+    text-decoration: none;
+    color: white;
+    font-size: 3ex;
+    margin: 10%;
+}
+
+.nav-item i{
+    margin: 0;
+    margin-right: -5%;
+    margin-left: 10%;
+}
+
+.nav-item:last-child{
+    position: absolute;
+    bottom: -50px;
+    white-space: nowrap;
+} 
+
+.nav-item img{
+    border-radius: 50%;
+}
+
+.nav-item {
+    margin: 5% 1px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #0056b3;
+    border-bottom: 2px solid white;
+    border-radius: 5%;
+}
+    </style>
 </head>
 
 <body>
@@ -19,7 +75,7 @@
         </div>
         <div class="nav-item">
             <i class="fa-solid fa-users" style="color: #ffffff;"></i>
-            <a href="../Trainees/index.html">Students</a>
+            <a id="studentORTrener" href="../Trainees/index.html">Students</a>
         </div>
         <div class="nav-item">
             <i class="fa-regular fa-comment" style="color: #ffffff;"></i>
@@ -34,6 +90,15 @@
         <a href="../Login/index.html">log Out</a>
         </div>
     </div>
+    <script>
+        let studentORTrener = document.getElementById("studentORTrener");
+        let liveUser = JSON.parse(localStorage.getItem("liveUser"));
+        if (liveUser && liveUser.type === "superAdmin") {
+            studentORTrener.textContent = "Trainers";
+            studentORTrener.setAttribute("href", "../Trainers/index.html");
+        }
+
+    </script>
 </body>
 
 </html>
