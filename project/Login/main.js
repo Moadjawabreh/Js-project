@@ -2,14 +2,11 @@ const adminUser=[{
     id:1,
     firstName:"Abedelhameed",
     lastName:"Alshorafa",
-    email:"abedelhameedalshorafa123@yahoo.com",
-    password:"Abed848419",
+    email:"m12@m12.com",
+    password:"1",
     age:25,
     type:"superAdmin"
 }]
-
-let count=1;
-localStorage.setItem("count",count);
 
 if(!localStorage.getItem("users"))
 {   
@@ -17,6 +14,12 @@ if(!localStorage.getItem("users"))
     localStorage.setItem("users",JsonData);
 }
 
+
+if(!localStorage.getItem("count"))
+{
+    let count=1;
+    localStorage.setItem("count",count);
+}
 forLogin=()=>{
     // for testing
 
@@ -30,9 +33,13 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
+<<<<<<< HEAD
     
     // let form=document.getElementById("formLog");
 
+=======
+    let formLog=document.getElementById("formLog")
+>>>>>>> main
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {
@@ -41,11 +48,12 @@ forLogin=()=>{
             sessionStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
-                window.open("../Home/index.html");
+               
+                formLog.action="../Home/index.html";
             }
             if(user.type==="trainer")
             {
-                window.open("../Home/index.html");
+                formLog.action="../Home/index.html";
             }
             break;
         }
