@@ -70,6 +70,7 @@
         .btn{
             position: fixed;
             left: 12%;
+            top: 0;
         }
 
         /* Button style */
@@ -91,51 +92,51 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="nav-item">
-            <img alt="img" src="">
-        </div>
-        <div class="nav-item">
-            <a href="../home/index.html">
-                <i class="fa-solid fa-house" style="color: #ffffff;margin-right: 3px;"></i>
-                Home
-            </a>
-        </div>
-        
-        <div class="nav-item">
-            <a id="studentORTrener" href="../Trainees/index.html">
-                <i class="fa-solid fa-users" style="color: #ffffff;margin-right: 3px;"></i>
-                Students
-            </a>
-        </div>
-        
-        <div class="nav-item">
-            <a href="../Feedback/index.html">
-                <i class="fa-regular fa-comment" style="color: #ffffff;margin-right: 3px;"></i>
-                Feedback
-            </a>
-        </div>
-        
-        <div class="nav-item">
-            <a href="../Profile/index.html">
-                <i class="fa-solid fa-user" style="color: #ffffff;margin-right: 3px;"></i>
-                Profile
-            </a>
-        </div>
-        
-        <div class="nav-item">
-            <a href="../Login/index.html">
-                <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;margin-right: 3px;"></i>
-                Log Out
-            </a>
-        </div>
+    <div>
+        <div class="navbar">
+            <div class="nav-item">
+                <img alt="img" src="">
+            </div>
+            <div class="nav-item" id="home">
+                <a href="../home/index.html">
+                    <i class="fa-solid fa-house" style="color: #ffffff;margin-right: 3px;"></i>
+                    Home
+                </a>
+            </div>
 
+            <div class="nav-item" id="Students">
+                <a id="studentORTrener" href="../Trainees/index.html">
+                    <i class="fa-solid fa-users" style="color: #ffffff;margin-right: 3px;"></i>
+                    Students
+                </a>
+            </div>
+
+            <div class="nav-item" id="Feedback">
+                <a href="../Feedback/index.html">
+                    <i class="fa-regular fa-comment" style="color: #ffffff;margin-right: 3px;"></i>
+                    Feedback
+                </a>
+            </div>
+
+            <div class="nav-item" id="Profile">
+                <a href="../Profile/index.html">
+                    <i class="fa-solid fa-user" style="color: #ffffff;margin-right: 3px;"></i>
+                    Profile
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="../Login/index.html">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;margin-right: 3px;"></i>
+                    Log Out
+                </a>
+            </div>
+
+        </div>
+        <div><button class="toggle-button btn" id="btn" onclick="toggleNavbar()"><</button></div>
     </div>
-    <div><button class="toggle-button btn" id="btn" onclick="toggleNavbar()"><</button></div>
-    
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
         function toggleNavbar() {
             let navbar = document.querySelector('.navbar');
             navbar.classList.toggle('navbar-hidden');
@@ -144,26 +145,13 @@
             btn.textContent = btn.textContent === '<' ? '>' : '<';
         }
 
-        let navItems = document.querySelectorAll('.nav-item');
-
-        navItems.forEach(item => {
-            item.addEventListener('click', function () {
-                // Remove 'active' class from all items
-                navItems.forEach(navItem => navItem.classList.remove('active'));
-
-                // Add 'active' class to the clicked item
-                item.classList.add('active');
-            });
-        });
-
         let studentORTrener = document.getElementById("studentORTrener");
         let liveUser = JSON.parse(localStorage.getItem("liveUser"));
 
         if (liveUser && liveUser.type === "superAdmin") {
             studentORTrener.textContent = "Trainers";
             studentORTrener.setAttribute("href", "../Trainers/index.html");
-        }
-    });
+            }
 </script>
 
 </body>
