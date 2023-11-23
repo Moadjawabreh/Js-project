@@ -8,15 +8,18 @@ const adminUser=[{
     type:"superAdmin"
 }];
 
-let count=1;
-localStorage.setItem("count",count);
-
 if(!localStorage.getItem("users"))
 {   
     const JsonData=JSON.stringify(adminUser);
     localStorage.setItem("users",JsonData);
 }
 
+
+if(!localStorage.getItem("count"))
+{
+    let count=1;
+    localStorage.setItem("count",count);
+}
 forLogin=()=>{
     // for testing
 
@@ -30,7 +33,13 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
+<<<<<<< HEAD
+    
+    // let form=document.getElementById("formLog");
+
+=======
     let formLog=document.getElementById("formLog")
+>>>>>>> main
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {

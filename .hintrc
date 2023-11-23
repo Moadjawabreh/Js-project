@@ -3,11 +3,13 @@
     "development"
   ],
   "hints": {
-    "axe/forms": [
+    "axe/text-alternatives": [
       "default",
       {
-        "label": "off"
+        "document-title": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off",
+    "axe/forms": "off"
   }
 }
