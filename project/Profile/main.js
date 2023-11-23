@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded",function () {
+// document.addEventListener("DOMContentLoaded",function () {
 
     let submit=document.getElementById("submitPrifile");
-    
+
     let fnameInput=document.getElementById("firstName");
     let lnameInput=document.getElementById("lastName");
     let emailInput=document.getElementById("email");
@@ -19,8 +19,21 @@ document.addEventListener("DOMContentLoaded",function () {
     cityInput.value=objSession.city;
     phoneNumberInput.value=objSession.number;
 
-    submit.addEventListener("click",function () {
-        let ogjLocal=JSON.parse(localStorage.getItem(""))
-    })
+
+
+    submit.addEventListener("click",function (e) {
+        e.preventDefault();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          
+        let ogjLocal=JSON.parse(localStorage.getItem(""));
+    });
+
     
-});
+    
+// });

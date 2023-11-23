@@ -6,7 +6,7 @@ const adminUser=[{
     password:"1",
     age:25,
     type:"superAdmin"
-}]
+}];
 
 let count=1;
 localStorage.setItem("count",count);
