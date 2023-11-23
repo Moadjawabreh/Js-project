@@ -30,7 +30,7 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
-
+    let formLog=document.getElementById("formLog")
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {
@@ -39,12 +39,12 @@ forLogin=()=>{
             localStorage.setItem("liveUser",JSON.stringify(user));
             if(user.type==="superAdmin")
             {
-                window.open("https://moadjawabreh.github.io/Js-project/project/Home/index.html");
-                // window.location.href="../Home/index.html";
+               
+                formLog.action="../Home/index.html";
             }
             if(user.type==="trainer")
             {
-                window.open("https://moadjawabreh.github.io/Js-project/project/Home/index.html");
+                formLog.action="../Home/index.html";
             }
             break;
         }
