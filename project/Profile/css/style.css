@@ -8,6 +8,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    
 }
 
 .profile {
@@ -18,6 +19,9 @@ html, body {
     padding: 20px;
     align-items: center;
     background: linear-gradient(170deg , #92c9f0, #6478ec);
+    background-image: url("../image/matthew-mcbrayer-qD9xzm7yK9U-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .profile .boxLogo {
