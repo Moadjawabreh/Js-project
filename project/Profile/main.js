@@ -8,16 +8,20 @@
     let passwordInput=document.getElementById("password");
     let cityInput=document.getElementById("city");
     let phoneNumberInput=document.getElementById("phoneNumber");
-    let age=document.getElementById("age");
+    let ageInput=document.getElementById("age");
     let objSession=JSON.parse(sessionStorage.getItem("liveUser"));
+    let imgInput=document.getElementById("imageLogo");
+    let profilePhoto=document.getElementById("profilePhoto");
+    console.log(profilePhoto.value);
 
     fnameInput.value=objSession.firstName;
     lnameInput.value=objSession.lastName;
     emailInput.value=objSession.email;
     passwordInput.value=objSession.password;
-    age.value=objSession.age;
+    ageInput.value=objSession.age;
     cityInput.value=objSession.city;
-    phoneNumberInput.value=objSession.number;
+    phoneNumberInput.value=objSession.phone;
+    imgInput.style.backgroundColor=url(`${objSession.image}`);
 
 
 
@@ -31,7 +35,20 @@
             timer: 1500
           });
           
-        let ogjLocal=JSON.parse(localStorage.getItem(""));
+        let objLive=JSON.parse(sessionStorage.getItem("liveUser"));
+       let objL=JSON.parse(localStorage.getItem("users"))
+        for (let i = 0; i < objL.length; i++) {
+            if(objL[i].id===objLive.id){
+                objL[i].firstName=fnameInput;
+                objL[i].lastName=lnameInput;
+                objL[i].age=ageInput;
+                objL[i].email=emailInput;
+                objL[i].password=passwordInput;
+
+            }
+          }
+
+       
     });
 
     

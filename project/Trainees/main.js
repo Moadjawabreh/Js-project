@@ -26,17 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let task = document.getElementById('task').value
     let absent = document.getElementById('absent').value
     if(studentName === ''){
-        studentName = 'enter name'
-        studentName.style.background = 'red'
+        studentName = 'enter name';
+        studentName.style.background = 'red';
     } else if (StudentId === ''){
-        StudentId = 'enter ID'
-        StudentId.style.background = 'red'
+        StudentId = 'enter ID';
+        StudentId.style.background = 'red';
     } else if (task === '') {
-        task = 'enter task'
-        task.style.background = 'red'
+        task = 'enter task';
+        task.style.background = 'red';
     } else if (absent === '') {
-        absent = 'enter absent'
-        absent.style.background = 'red'
+        absent = 'enter absent';
+        absent.style.background = 'red';
     }
     })
 });
