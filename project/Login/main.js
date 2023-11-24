@@ -37,10 +37,7 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
-<<<<<<< HEAD
 
-    let formLog=document.getElementById("formLog")
-=======
 
 
     
@@ -48,8 +45,6 @@ forLogin=()=>{
 
 
     let formLog=document.getElementById("formLog")
-
->>>>>>> d38d9df0cc0f1ec6ce28221d8b0051813d8d374a
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {

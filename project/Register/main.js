@@ -60,7 +60,6 @@ addTrainer=()=>{
         email,
         password,
         age,
-        image,
         city,
         phone,
         type
