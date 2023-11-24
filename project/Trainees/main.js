@@ -20,18 +20,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }
         let count=JSON.parse(localStorage.getItem("countForStudents"));
         let saveAddStudent = document.getElementById('saveAddStudent')
-        let studentName = document.getElementById("studentName").value;
-        let taskInput=document.getElementById("taskInput").value;
-        let absent = document.getElementById('absent').value
-
+        let studentName = document.getElementById("studentName");
+        let taskInput=document.getElementById("taskInput");
+        let absent = document.getElementById('absent');
+        
         saveAddStudent.addEventListener('click', () => {
-            if(studentName === ''){
-            console.log('no input')
-            } else if (task === '') {
-                console.log('no input')
-            } else if (absent === '') {
-                console.log('no input')
+            if(studentName.value === ''){
+                console.log(studentName)
+                alert("Please enter a valid numeric task.");
+            } else if (taskInput.value === '') {
+                console.log(taskInput)
+                alert("Please enter a valid numeric task.");
+            } else if (absent.value === '') {
+                console.log(absent)
+                alert("Please enter a valid numeric task.");
             } else {
+                inputsStudent.style.display = 'none'
                 count++;
                 let id=count;
                 let solvedTasks=0;
@@ -79,11 +83,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
                                 <td class="addSolvedTask">${student.solvedTasks} <button id="addSolvedTask"><i class="fa fa-save" aria-hidden="true"></i></button></td>
                                 <td class="taskNumber">${student.totalTasks}</td>
                                 <td>${student.absences} <button id="addAbsencesTask"><i class="fa fa-save" aria-hidden="true"></i></button>\</td>
-                                <td><button id="deleteStudent><i class="fa-solid fa-trash"></i></button></td>`;
+                                <td><button id="deleteStudent"><i class="fa-solid fa-trash"></i></button></td>`;
             tbody.appendChild(tableRow);  
             }
         }
     }
+
+
     let addTask = document.getElementById('addTask');
     addTask.addEventListener('click', () => {
         let inputsStudent = document.querySelector('.inputsStudent');
@@ -109,7 +115,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 alert("Please enter a valid numeric task.");
             } else {
                 inputsAddTaskFeedback.style.display = 'none';
-                inputsAddTask.style.display = 'none';
             }
     
             const students = JSON.parse(localStorage.getItem("students"));
@@ -138,7 +143,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             inputsStudent.style.display = 'none';
         } else {
             inputsAddTaskFeedback.style.display = 'none';
-            inputsFeedback.style.display = 'none';
+
         }
 
         let saveAddFeedback = document.getElementById('saveAddFeedback');
@@ -147,8 +152,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             if (!studentsNamesSelect) {
                 alert("Please enter valid feedback.");
             } else {
-                inputsAddTaskFeedback.style.display = 'none';
-                inputsFeedback.style.display = 'none';    
+                inputsAddTaskFeedback.style.display = 'none';   
             }
     });
 });
