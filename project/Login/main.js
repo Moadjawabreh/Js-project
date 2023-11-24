@@ -5,8 +5,12 @@ const adminUser=[{
     email:"m12@m12.com",
     password:"1",
     age:25,
+    image:"../RMI_8333.JPG",
+    city:"Irbid",
+    phone:"0777848419",
     type:"superAdmin"
-}]
+}];
+
 
 if(!localStorage.getItem("users"))
 {   
@@ -34,12 +38,18 @@ forLogin=()=>{
     
     // validation if you need 
 <<<<<<< HEAD
+
+    let formLog=document.getElementById("formLog")
+=======
+
+
     
     // let form=document.getElementById("formLog");
 
-=======
+
     let formLog=document.getElementById("formLog")
->>>>>>> main
+
+>>>>>>> d38d9df0cc0f1ec6ce28221d8b0051813d8d374a
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {
