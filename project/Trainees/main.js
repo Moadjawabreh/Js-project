@@ -84,48 +84,54 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         }
     }
-
-    let addTask = document.getElementById('addTask')
+    let addTask = document.getElementById('addTask');
     addTask.addEventListener('click', () => {
-        let inputsStudent = document.querySelector('.inputsStudent')
-        let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback')
-        let inputsAddTask = document.getElementById('inputs-addTask')
-        let inputsFeedback = document.getElementById('inputs-feedback')
-        if(inputsAddTaskFeedback.style.display === 'none' && inputsAddTask.style.display === 'none'){
-            inputsAddTaskFeedback.style.display = 'block'
-            inputsAddTask.style.display = 'block'
-            inputsFeedback.style.display = 'none'
-            inputsStudent.style.display = 'none'
+        let inputsStudent = document.querySelector('.inputsStudent');
+        let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
+        let inputsAddTask = document.getElementById('inputs-addTask');
+        let inputsFeedback = document.getElementById('inputs-feedback');
+    
+        if (inputsAddTaskFeedback.style.display === 'none' && inputsAddTask.style.display === 'none') {
+            inputsAddTaskFeedback.style.display = 'block';
+            inputsAddTask.style.display = 'block';
+            inputsFeedback.style.display = 'none';
+            inputsStudent.style.display = 'none';
         } else {
-            inputsAddTaskFeedback.style.display = 'none'
-            inputsAddTask.style.display = 'none'
+            inputsAddTaskFeedback.style.display = 'none';
+            inputsAddTask.style.display = 'none';
         }
-        
-
+    
         let saveAddTask = document.getElementById('saveAddTask');
         saveAddTask.addEventListener('click', () => {
-            let inputAddTask =document.getElementById("inputAddTask").value;
-            const students=JSON.parse(localStorage.getItem("students"));
-            let user=JSON.parse(sessionStorage.getItem("liveUser"));
-            if(students){
+            let inputAddTask = document.getElementById("inputAddTask").value.trim();
+    
+            if (!inputAddTask || isNaN(inputAddTask) ||  inputAddTask < 0) {
+                alert("Please enter a valid numeric task.");
+            } else {
+                inputsAddTaskFeedback.style.display = 'none';
+                inputsAddTask.style.display = 'none';
+            }
+    
+            const students = JSON.parse(localStorage.getItem("students"));
+            let user = JSON.parse(sessionStorage.getItem("liveUser"));
+            if (students) {
                 for (let student of students) {
-                    if(student.supervisorId===user.id) {
-                        student.totalTasks+=inputAddTask;
+                    if (student.supervisorId === user.id) {
+                        student.totalTasks += parseInt(inputAddTask);
                     }
                 }
             }
         });
-    })
+    });
 
     let feedback = document.getElementById('feedback');
     feedback.addEventListener('click', () => {
-        let inputsStudent = document.querySelector('.inputsStudent')
+        let inputsStudent = document.querySelector('.inputsStudent');
         let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
         let inputsFeedback = document.getElementById('inputs-feedback');
         let inputsAddTask = document.getElementById('inputs-addTask');
 
         if (inputsAddTaskFeedback.style.display === 'none' || inputsFeedback.style.display === 'none') {
-            
             inputsAddTaskFeedback.style.display = 'block';
             inputsFeedback.style.display = 'block';
             inputsAddTask.style.display = 'none';
@@ -137,11 +143,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         let saveAddFeedback = document.getElementById('saveAddFeedback');
         saveAddFeedback.addEventListener('click', () => {
-            
-        });
-    
+            let studentsNamesSelect = document.getElementById('studentsNamesSelect').value.trim();
+            if (!studentsNamesSelect) {
+                alert("Please enter valid feedback.");
+            } else {
+                inputsAddTaskFeedback.style.display = 'none';
+                inputsFeedback.style.display = 'none';    
+            }
     });
-
+});
 
     let addSolvedTask = document.getElementById('addSolvedTask')
     let addAbsencesTask = document.getElementById('addAbsencesTask')
