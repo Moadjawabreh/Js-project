@@ -28,22 +28,36 @@
                 <div class="inputsStudent">
                     <label for="studentName">student name: </label>
                     <input type="text" id="studentName">
-                    <label for="StudentId">student id: </label>
-                    <input type="text" id="StudentId">
-                    <label for="task">task: </label>
-                    <input type="text" id="task">
+                    <label for="taskInput">task: </label>
+                    <input type="text" id="taskInput">
                     <label for="absent">absent: </label>
                     <input type="text" id="absent">
+                    <div class="btnSave">
+                        <button class="btn" id="saveAddStudent"><i class="fa fa-save" aria-hidden="true"></i>Save</button>
+                    </div>
                 </div>
                 <div class="addTask-feedback">
                     <button class="btn" id="addTask"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Task</button>
                     <button class="btn" id="feedback"><i class="fa fa-plus-circle" aria-hidden="true"></i>Feedback</button>
                 </div>
-                <div class="inputs-sddTask-feedback">
-                    <input type="number">
-                </div>
-                <div class="btnSave">
-                    <button class="btn" id="save"><i class="fa fa-save" aria-hidden="true"></i>Save</button>
+                <div id="inputs-addTask-feedback">
+                    <div id="inputs-addTask">
+                        <label for="inputAddTask">task: </label>
+                        <input type="number" id="inputAddTask">
+                        <div class="btnSave">
+                            <button class="btn" id="saveAddTask"><i class="fa fa-save" aria-hidden="true"></i>Save</button>
+                        </div>
+                    </div>
+                    <div id="inputs-feedback">
+                        <label for="namesFeedback">Students: </label>
+                        <select name="" id="namesFeedback"></select>
+                        <br>
+                        <label for="studentsNamesSelect">feedback: </label>
+                        <textarea name="" id="studentsNamesSelect" cols="10" rows="5"></textarea>
+                        <div class="btnSave">
+                            <button class="btn" id="saveAddFeedback"><i class="fa fa-save" aria-hidden="true"></i>Save</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="searchOptions">
                     <button class="btn" id="searchByName"><i class="fa fa-search" aria-hidden="true"></i>Search By Name</button>
@@ -60,14 +74,6 @@
                             <th>Total Task</th>
                             <th>Absences</th>
                             <th>Actions</th>
-                        </tr>
-                        <tr>
-                            <td>d</td>
-                            <td>d</td>
-                            <td>d</td>
-                            <td>d</td>
-                            <td>d</td>
-                            <td>d</td>
                         </tr>
                     </thead>
                     <tbody id="tbody">
