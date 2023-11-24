@@ -44,13 +44,14 @@
                 objL[i].age=ageInput.value;
                 objL[i].email=emailInput.value;
                 objL[i].password=passwordInput.value;
-                localStorage.setItem("users", JSON.stringify(objL[i]));
                 sessionStorage.setItem("liveUser", JSON.stringify(objL[i]));
 
             }
           }
+          localStorage.setItem("users", JSON.stringify(objL));
 
-       
+
+
     });
 
     
