@@ -5,6 +5,9 @@ const adminUser=[{
     email:"m12@m12.com",
     password:"1",
     age:25,
+    image:"../RMI_8333.JPG",
+    city:"Irbid",
+    phone:"0777848419",
     type:"superAdmin"
 }]
 
@@ -33,13 +36,8 @@ forLogin=()=>{
     // let loginPage=document.getElementById("login");
     
     // validation if you need 
-<<<<<<< HEAD
-    
-    // let form=document.getElementById("formLog");
 
-=======
     let formLog=document.getElementById("formLog")
->>>>>>> main
     const users=JSON.parse(localStorage.getItem("users"));
     for(const user of users)
     {

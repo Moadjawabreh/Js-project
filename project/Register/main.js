@@ -9,6 +9,8 @@ addTrainer=()=>{
     let password=document.getElementById("password").value;
     let age=document.getElementById("age").value;
     let confirmPassword=document.getElementById("confirmPassword").value;
+    let city=document.getElementById("city").value;
+    let phone=document.getElementById("phone").value;    
     let type="trainer";
 
     // for validations
@@ -58,6 +60,9 @@ addTrainer=()=>{
         email,
         password,
         age,
+        image,
+        city,
+        phone,
         type
     };
 
