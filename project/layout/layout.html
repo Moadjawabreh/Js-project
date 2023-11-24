@@ -153,14 +153,15 @@
             btn.textContent = btn.textContent === '<' ? '>' : '<';
             
         }
-
         let studentORTrener = document.getElementById("studentORTrener");
-        let liveUser = JSON.parse(localStorage.getItem("liveUser"));
+        let liveUser = JSON.parse(sessionStorage.getItem("liveUser"));
 
         if (liveUser && liveUser.type === "superAdmin") {
-            studentORTrener.textContent = "Trainers";
-            studentORTrener.setAttribute("href", "../Trainers/index.html");
+            if (studentORTrener) {
+                studentORTrener.innerHTML = '<i class="fa-solid fa-users" style="color: #ffffff; margin-right: 3px;"></i>Trainers';
+                studentORTrener.setAttribute("href", "../Trainers/index.html");
             }
+        } 
 </script>
 
 </body>
