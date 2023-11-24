@@ -21,29 +21,31 @@
     ageInput.value=objSession.age;
     cityInput.value=objSession.city;
     phoneNumberInput.value=objSession.phone;
-    imgInput.style.backgroundColor=url(`${objSession.image}`);
+    // imgInput.style.backgroundColor=url(`${objSession.image}`);
 
 
 
     submit.addEventListener("click",function (e) {
         e.preventDefault();
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          });
+        // Swal.fire({
+        //     position: 'center',
+        //     icon: 'success',
+        //     title: 'Your work has been saved',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        //   });
           
         let objLive=JSON.parse(sessionStorage.getItem("liveUser"));
        let objL=JSON.parse(localStorage.getItem("users"))
         for (let i = 0; i < objL.length; i++) {
             if(objL[i].id===objLive.id){
-                objL[i].firstName=fnameInput;
-                objL[i].lastName=lnameInput;
-                objL[i].age=ageInput;
-                objL[i].email=emailInput;
-                objL[i].password=passwordInput;
+                objL[i].firstName=fnameInput.value;
+                objL[i].lastName=lnameInput.value;
+                objL[i].age=ageInput.value;
+                objL[i].email=emailInput.value;
+                objL[i].password=passwordInput.value;
+                localStorage.setItem("users", JSON.stringify(objL[i]));
+                sessionStorage.setItem("liveUser", JSON.stringify(objL[i]));
 
             }
           }

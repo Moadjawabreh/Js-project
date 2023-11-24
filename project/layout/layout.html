@@ -34,6 +34,7 @@
             color: white;
             font-size: 2ex;
             margin: 10%;
+            white-space: nowrap;
         }
 
         .nav-item i {
@@ -67,7 +68,7 @@
             transform: translateX(-100%);
         }
 
-        .btn{
+        .asdc{
             position: fixed;
             left: 12%;
             top: 0;
@@ -82,6 +83,7 @@
             cursor: pointer;
             height: 100vh;
             font-size: 1em;
+            transition: transform 0.3s ease-in-out;
         }
 
         .newPostion{
@@ -133,7 +135,7 @@
             </div>
 
         </div>
-        <div><button class="toggle-button btn" id="btn" onclick="toggleNavbar()"><</button></div>
+        <div><button class="toggle-button asdc" id="btn" onclick="toggleNavbar()"><</button></div>
     </div>
 
 <script>
@@ -143,6 +145,7 @@
             let btn = document.getElementById("btn");
             btn.classList.toggle('newPostion');
             btn.textContent = btn.textContent === '<' ? '>' : '<';
+            
         }
 
         let studentORTrener = document.getElementById("studentORTrener");
