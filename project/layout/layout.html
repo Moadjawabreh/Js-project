@@ -6,99 +6,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 18% auto;
-}
-
-.navbar {
-    background-color: #007bff;
-    padding: 15px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.nav-item {
-    margin: 5% 1px;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 12% auto;
+        }
 
 
-.nav-item a,
-.nav-item i {
-    text-decoration: none;
-    color: white;
-    font-size: 3ex;
-    margin: 10%;
-}
+        .navbar {
+            background-color: #007bff;
+            padding: 15px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
 
-.nav-item i{
-    margin: 0;
-    margin-right: -5%;
-    margin-left: 10%;
-}
+        .nav-item {
+            margin: 5% 1px;
+        }
 
-.nav-item:last-child{
-    position: absolute;
-    bottom: -50px;
-    white-space: nowrap;
-} 
+        .nav-item a,
+        .nav-item i {
+            text-decoration: none;
+            color: white;
+            font-size: 2ex;
+            margin: 10%;
+            white-space: nowrap;
+        }
 
-.nav-item img{
-    border-radius: 50%;
-}
+        .nav-item i {
+            margin: 0;
+            margin-right: -5%;
+            margin-left: 10%;
+        }
 
-.nav-item {
-    margin: 5% 1px;
-    transition: background-color 0.3s;
-}
+        .nav-item:last-child {
+            position: absolute;
+            bottom: -50px;
+            white-space: nowrap;
+        }
 
-.nav-item:hover {
-    background-color: #0056b3;
-    border-bottom: 2px solid white;
-    border-radius: 5%;
-}
+        .nav-item img {
+            border-radius: 50%;
+        }
+
+        .nav-item {
+            margin: 5% 1px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover,
+        .active {
+            background-color: #0056b3;
+            border-bottom: 2px solid white;
+            border-radius: 5%;
+        }
+        .navbar-hidden {
+            transform: translateX(-100%);
+        }
+
+        .asdc{
+            position: absolute;
+            left: 12%;
+            top: 0;
+        }
+
+        /* Button style */
+        .toggle-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            height: 100vh;
+            font-size: 1em;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .newPostion{
+            left: 0;
+        }
+        
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="nav-item">
-            <img alt="img" src="">
+    <div>
+        <div class="navbar">
+            <div class="nav-item">
+                <img alt="img" src="">
+            </div>
+            <div class="nav-item" id="home">
+                <a href="../home/index.html">
+                    <i class="fa-solid fa-house" style="color: #ffffff;margin-right: 3px;"></i>
+                    Home
+                </a>
+            </div>
+
+            <div class="nav-item" id="Students">
+                <a id="studentORTrener" href="../Trainees/index.html">
+                    <i class="fa-solid fa-users" style="color: #ffffff;margin-right: 3px;"></i>
+                    Students
+                </a>
+            </div>
+
+            <div class="nav-item" id="Feedback">
+                <a href="../Feedback/index.html">
+                    <i class="fa-regular fa-comment" style="color: #ffffff;margin-right: 3px;"></i>
+                    Feedback
+                </a>
+            </div>
+
+            <div class="nav-item" id="Profile">
+                <a href="../Profile/index.html">
+                    <i class="fa-solid fa-user" style="color: #ffffff;margin-right: 3px;"></i>
+                    Profile
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="../Login/index.html">
+                    <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;margin-right: 3px;"></i>
+                    Log Out
+                </a>
+            </div>
+
         </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-            <a href="../home/index.html">Home</a>
-        </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-users" style="color: #ffffff;"></i>
-            <a id="studentORTrener" href="../Trainees/index.html">Students</a>
-        </div>
-        <div class="nav-item">
-            <i class="fa-regular fa-comment" style="color: #ffffff;"></i>
-            <a href="#">Feadback</a>
-        </div>
-        <div class="nav-item">
-            <i class="fa-solid fa-user" style="color: #ffffff;"></i>
-            <a href="../Profile/index.html">Profile</a>
-        </div>
-        <div class="nav-item">
-        <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
-        <a href="../Login/index.html">log Out</a>
-        </div>
+        <div><button class="toggle-button asdc" id="btn" onclick="toggleNavbar()"><</button></div>
     </div>
-    <script>
+
+<script>
+        function toggleNavbar() {
+            let navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('navbar-hidden');
+
+            let btn = document.getElementById("btn");
+            btn.classList.toggle('newPostion');
+            btn.textContent = btn.textContent === '<' ? '>' : '<';
+            
+        }
+
         let studentORTrener = document.getElementById("studentORTrener");
         let liveUser = JSON.parse(localStorage.getItem("liveUser"));
+
         if (liveUser && liveUser.type === "superAdmin") {
             studentORTrener.textContent = "Trainers";
             studentORTrener.setAttribute("href", "../Trainers/index.html");
-        }
+            }
+</script>
 
-    </script>
 </body>
 
 </html>
