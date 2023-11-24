@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
             localStorage.setItem("students",JSON.stringify(students));
         })
+
     }
 
     let namesFeedback = document.getElementById('namesFeedback')

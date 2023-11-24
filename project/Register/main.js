@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', ()=>{
     let formRegister = document.getElementById('formRegister')
     formRegister.addEventListener('submit', (e) => {
