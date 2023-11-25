@@ -1,24 +1,26 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-html, body{
-    width: 100%;
-    height: 100%;
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
-.register{
-    background-image: url(../img/wh.jpg);
-    height: 100%;
-    display: flex;
-    background-size: cover  ;
-    position: center;
+.register {
+  background-image: url(../img/wh.jpg);
+  height: 100%;
+  display: flex;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
 }
+
 /* Form container */
-.formContainer{
+.formContainer {
   background-color: #fff;
   padding: 30px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -51,6 +53,26 @@ input {
   border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#firstName,
+#lastName {
+  width: 49%; 
+  display: inline-block;
+}
+
+#lastName {
+  margin-right: 0;
+}
+
+
+#age, #city {
+  width: 49%;
+}
+
+#phoneNumber {
+  width: 50%;
 }
 
 /* Input fields on focus */
@@ -70,7 +92,6 @@ input:focus {
 #submitRegister {
   background-color: #007bff;
   color: white;
-  margin-top: 10px;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;

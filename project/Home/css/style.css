@@ -169,3 +169,27 @@ li:hover .deleteButton {
     transform: scale(1.2);
     transition: 0.3;
 }
+@media screen and (max-width: 768px) {
+    .home .headerTitle {
+        padding: 10px; /* Further reduced padding for smaller screens */
+    }
+
+    .home .headerTitle h2 {
+        font-size: 1.2em; /* Further reduced font size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .home .headerTitle {
+        padding: 5px; /* Further reduced padding for smaller screens */
+    }
+
+    .home .headerTitle h2 {
+        font-size: 1em; /* Further reduced font size for smaller screens */
+    }
+
+    .home .contentHome .new,
+    .home .contentHome .note {
+        padding: 10px; /* Adjusted padding for smaller screens */
+    }
+}
