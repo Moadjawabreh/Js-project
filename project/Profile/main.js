@@ -13,7 +13,7 @@
     let imgInput=document.getElementById("imageLogo");
     let profilePhoto=document.getElementById("profilePhoto");
     var image = document.createElement('img');
-    
+    var check=false;
     fnameInput.value=objSession.firstName;
     lnameInput.value=objSession.lastName;
     emailInput.value=objSession.email;
@@ -28,9 +28,10 @@
 
     }
     // imgInput.style.backgroundColor=url(`${objSession.image}`);
-
+    
     document.getElementById("profilePhoto").addEventListener("click",function () {
         var input = document.createElement('input');
+        check=true;
         input.type = 'file';
         input.addEventListener('change', function (event) {
             var file = event.target.files[0];
@@ -60,7 +61,9 @@
     submit.addEventListener("click",function (e) {
         e.preventDefault();
      
-          
+         if(!check){
+            image.src=objSession.image;
+         } 
         let objLive=JSON.parse(sessionStorage.getItem("liveUser"));
        let objL=JSON.parse(localStorage.getItem("users"))
         for (let i = 0; i < objL.length; i++) {
@@ -78,7 +81,14 @@
 
                 sessionStorage.setItem("liveUser", JSON.stringify(objL[i]));
                 localStorage.setItem("users", JSON.stringify(objL));
+                window.location.href="../Home/index.html";
 
+                Swal.fire(
+                    'Good job!',
+                    'Your account has been modified!',
+                    'success'
+                  )
+                  
             }
           }
 

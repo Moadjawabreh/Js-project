@@ -46,7 +46,8 @@ html, body{
 
 .btn{
     padding: 5px;
-    background-color: rgb(85, 132, 250);
+    
+    background: linear-gradient(170deg , #92c9f0, #6478ec);
     border-radius: 3px;
     border: 1px rgb(83, 84, 83) solid;
     margin: 5px;
@@ -102,10 +103,11 @@ margin: 3px;
 table {
     border-collapse: collapse;
     width: 100%;
+    
 }
 
 th,td {
-    background-color: rgb(85, 132, 250);
+    background: linear-gradient(170deg , #92c9f0, #6478ec);
     color: #fff;
     padding: 10px;
 }
