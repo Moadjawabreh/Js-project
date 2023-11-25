@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let absent = document.getElementById('absent');
         
         saveAddStudent.addEventListener('click', () => {
+            let totalTasks = 0;
             if(studentName.value === ''){
                 console.log(studentName)
                 alert("Please enter a valid numeric task.");
