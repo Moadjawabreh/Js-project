@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             console.log(studentName);
 
             if(studentName === ''){
+            let totalTasks = 0;
+            if(studentName.value === ''){
                 console.log(studentName)
                 alert("Please enter a valid numeric task.");
             } else if (taskInput === '') {
