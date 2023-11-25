@@ -93,6 +93,56 @@
             $("#layout-container").load("../layout/layout.html");
         });
     </script>
+    <script>
+
+        forAddingFeedback=()=>{
+    let namesFeedback = document.getElementById('namesFeedback')
+    let user=JSON.parse(sessionStorage.getItem("liveUser"));
+    let trainer=`${user.firstName} ${user.lastName}`;
+    let feedBack=document.getElementById("feedbackInput").value;
+    let date =date();
+
+    if(!localStorage.getItem("feedbacks"))
+    {
+        const feedback=[{
+            namesFeedback,
+            trainer,
+            feedBack,
+            date
+        }];
+
+        localStorage.setItem("feedbacks",JSON.stringify(feedback));
+    }
+    else
+    {
+        const feedback={
+            namesFeedback,
+            trainer,
+            feedBack,
+            date
+        };
+        const feedbacks=JSON.parse(localStorage.getItem("feedbacks"));
+        students.push(feedback);
+        localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
+    }
+}
+
+forOptions=()=>{
+    let select=document.getElementById("students");
+    let students=JSON.parse(localStorage.getItem("students"));
+    let user=JSON.parse(sessionStorage.getItem("liveUser"));
+    for(let student of students)
+    {
+        if(student.supervisorId===user.id)
+        {
+            let option=createElement("option");
+            option.value=`${student.name}`;
+            option.text=`${student.name}`;
+            select.appendChild(option);
+        }
+    }
+}
+    </script>
 
 </body>
 
