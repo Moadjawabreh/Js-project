@@ -1,3 +1,22 @@
+forShowingTrainers=()=>{
+    let tBody=document.getElementById("tbody");
+    const users=JSON.parse(localStorage.getItem("users"));
+    for (let user of users)
+    {
+        if(user.type==="trainer")
+        {
+            let tableRow=document.createElement("tr");
+            tableRow.innerHTML=`<td>${user.id}</td>
+            <td>${user.firstName}${user.lastName}</td>
+            <td><button class="students-btn" data-id="${user.id}">Students</button></td>
+            <td><button class="delete-btn" data-id="${user.id}">Delete</button></td>`;
+            tBody.appendChild(tableRow);  
+        }       
+    }
+}
+
+
+forShowingTrainers();
 document.addEventListener('DOMContentLoaded', () => {
     let addTrainers = document.getElementById('addTrainers')
     addTrainers.style.cursor = "pointer";
@@ -7,26 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
-// Load trainers
-forShowingTrainers();
 
 /// without funvtions already downloaded
-forShowingTrainers=()=>{
-    let tBody=document.getElementById("tbody");
-    const users=JSON.parse(localStorage.getItem("users"));
-    for (let user of users)
-    {
-        if(user.type==="trainers")
-        {
-            let tableRow=document.createElement("tr");
-            tableRow.innerHTML=`<td>${user.id}</td>
-            <td>${student.firstName}${student.lastName}</td>
-            <td><button class="students-btn" data-id="${user.id}">Students</button></td>
-            <td><button class="delete-btn" data-id="${user.id}">Delete</button></td>`;
-            tBody.appendChild(tableRow);  
-        }       
-    }
-}
 
 deleteUser = (userId) => {
     const users = JSON.parse(localStorage.getItem("users"));

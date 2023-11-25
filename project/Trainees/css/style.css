@@ -141,3 +141,106 @@ td, th {
 #studentsNamesSelect{
     display: block;
 }
+
+@media screen and (max-width: 768px) {
+    .containerTrainees {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .headerTitle {
+        padding: 15px;
+    }
+
+    .headerTitle h1 {
+        font-size: 1.5em;
+    }
+
+    .buttons {
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .inputsStudent {
+        margin-top: 10px;
+    }
+
+    .inputsStudent label,
+    .inputsStudent input {
+        width: 100%;
+    }
+
+    .addTask-feedback {
+        flex-direction: column;
+    }
+
+    #inputs-addTask-feedback {
+        flex-direction: column;
+    }
+
+    #inputs-addTask,
+    #inputs-feedback {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #inputs-addTask label,
+    #inputs-feedback label,
+    #inputs-addTask input,
+    #inputs-feedback select,
+    #inputs-feedback textarea {
+        width: 100%;
+    }
+
+    .table-trainees {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    
+    @media screen and (max-width: 390px) {
+        /* Styles for screens up to 390px */
+
+        .headerTitle h1 {
+            font-size: 1.2em;
+        }
+
+        .buttons {
+            padding: 5px;
+        }
+
+        .btn {
+            padding: 3px;
+            font-size: 0.8em;
+        }
+
+        .inputsStudent label,
+        .inputsStudent input,
+        #inputs-addTask label,
+        #inputs-addTask input,
+        #inputs-feedback label,
+        #inputs-feedback select,
+        #inputs-feedback textarea {
+            font-size: 0.8em;
+        }
+
+        .table-trainees {
+            padding: 5px;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    }
+}

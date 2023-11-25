@@ -142,6 +142,7 @@ html, body {
 }
 
 
+
 @media screen and (max-width: 768px) {
     .profile .boxLogo {
         width: 90%;
@@ -149,5 +150,45 @@ html, body {
 
     .informationUser {
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile .boxLogo {
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .profile .boxLogo .imageContainer {
+        margin-bottom: 20px;
+    }
+
+    .profile .boxLogo div {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .informationUser {
+        width: 90%;
+    }
+
+    .informationUser form div {
+        flex-direction: column;
+    }
+
+    .informationUser form div input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    /* Additional styles for screens 390px or less */
+    .profile .boxLogo {
+        width: 95%;
+    }
+
+    .informationUser {
+        width: 95%;
     }
 }
