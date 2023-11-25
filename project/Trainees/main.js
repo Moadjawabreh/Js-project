@@ -28,9 +28,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             let absent = document.getElementById('absent').value;
 
             console.log(studentName);
-
-            if(studentName === ''){
             let totalTasks = 0;
+            if(studentName === ''){
             if(studentName.value === ''){
                 console.log(studentName)
                 alert("Please enter a valid numeric task.");
@@ -117,7 +116,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let saveAddTask = document.getElementById('saveAddTask');
         saveAddTask.addEventListener('click', () => {
             let inputAddTask = document.getElementById("inputAddTask").value.trim();
-    
+            
             if (!inputAddTask || isNaN(inputAddTask) ||  inputAddTask < 0) {
                 alert("Please enter a valid numeric task.");
             } else {
@@ -153,16 +152,50 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         }
 
+
         let saveAddFeedback = document.getElementById('saveAddFeedback');
         saveAddFeedback.addEventListener('click', () => {
+            
             let studentsNamesSelect = document.getElementById('studentsNamesSelect').value.trim();
+            console.log(studentsNamesSelect)
             if (!studentsNamesSelect) {
                 alert("Please enter valid feedback.");
             } else {
-                inputsAddTaskFeedback.style.display = 'none';   
+
+                inputsAddTaskFeedback.style.display = 'none';
+
+                let namesFeedback = document.getElementById('namesFeedback')
+                let user=JSON.parse(sessionStorage.getItem("liveUser"));
+                let trainer=`${user.firstName} ${user.lastName}`;
+                let feedBack=document.getElementById("studentsNamesSelect").value;
+                let date =date();
+            
+                if(!localStorage.getItem("feedbacks"))
+                {
+                    const feedback=[{
+                        namesFeedback,
+                        trainer,
+                        feedBack,
+                        date
+                    }];
+            
+                    localStorage.setItem("feedbacks",JSON.stringify(feedback));
+                }
+                else
+                {
+                    const feedback={
+                        namesFeedback,
+                        trainer,
+                        feedBack,
+                        date
+                    };
+                    const feedbacks=JSON.parse(localStorage.getItem("feedbacks"));
+                    students.push(feedback);
+                    localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
+                }               
             }
+        });
     });
-});
 
     let addSolvedTask = document.getElementById('addSolvedTask')
     let addAbsencesTask = document.getElementById('addAbsencesTask')
@@ -205,22 +238,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
             localStorage.setItem("students",JSON.stringify(students));
         })
-
     }
 
-    let namesFeedback = document.getElementById('namesFeedback')
-    let studentsList = JSON.parse(localStorage.getItem("students"));
-    if(studentsList){
-        let trainer = JSON.parse(sessionStorage.getItem("liveUser"));
-        for(let student of studentsList)
-        {
-            if(student.supervisorId===trainer.id)
-            {
-                let option=createElement("option");
-                option.value=`${student.name}`;
-                option.text=`${student.name}`;
-                namesFeedback.appendChild(option);
-            }
+    let namesFeedback=document.getElementById("namesFeedback");
+    let trainer=JSON.parse(sessionStorage.getItem("liveUser"));
+    if(students && trainer){
+        for(let student of students){
+        if(student.supervisorId===trainer.id){
+            let option=createElement("option");
+            option.value=`${student.name}`;
+            option.text=`${student.name}`;
+            namesFeedback.appendChild(option);
         }
     }
+    }
+    
 })
