@@ -130,3 +130,80 @@ td, th {
     border-radius: 4px;
     border: 1px solid #666666;
 }
+
+@media screen and (max-width: 768px) {
+    .containerTrainers {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .headerTitle {
+        padding: 15px;
+    }
+
+    .headerTitle h1 {
+        font-size: 1.5em;
+    }
+
+    .buttons {
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .searchOptions {
+        flex-direction: column;
+    }
+
+    .table-trainees {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .inputs-sddTask-feedback,
+    .inputsStudent {
+        margin-top: 10px;
+    }
+
+    .inputs-sddTask-feedback input,
+    .inputsStudent input {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 390px) {
+        .containerTrainers {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .headerTitle h1 {
+            font-size: 1.5em; /* Adjust font size for smaller screens */
+        }
+
+        .btn {
+            font-size: 0.8em; /* Adjust font size for smaller screens */
+        }
+
+        .searchOptions {
+            flex-direction: column; /* Stack search options vertically on smaller screens */
+        }
+
+        .table-trainees {
+            padding: 10px; /* Adjust padding for smaller screens */
+        }
+
+        th, td {
+            padding: 5px; /* Adjust padding for smaller screens */
+        }
+    }
+}
