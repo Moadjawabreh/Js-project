@@ -17,6 +17,7 @@ forShowingTrainers=()=>{
 
 
 forShowingTrainers();
+
 document.addEventListener('DOMContentLoaded', () => {
     let addTrainers = document.getElementById('addTrainers')
     addTrainers.style.cursor = "pointer";
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 deleteUser = (userId) => {
     const users = JSON.parse(localStorage.getItem("users"));
-    for (let i = 0; i < users.length; i++) {
+    for (let i=0;;i++) {
         if (users[i].id === userId) {
             users.splice(i, 1);
             break;
@@ -86,13 +87,13 @@ document.getElementById("forSearching").style.display = "none";
 
 document.getElementById('tbody').addEventListener('click', function (event) {
     if (event.target.classList.contains('delete-btn')) {
-        let userId = event.target.dataset.id;
+        let userId = parseInt(event.target.dataset.id);
 
         // Call the deleteUser function with the id
         deleteUser(userId);
 
         // Update the table to reflect the change
-        forShowingTrainers();
+        location.reload();
 
         } else if (event.target.classList.contains('students-btn')) {
             let userId = event.target.dataset.id;

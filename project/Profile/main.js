@@ -78,6 +78,7 @@
 
                 sessionStorage.setItem("liveUser", JSON.stringify(objL[i]));
                 localStorage.setItem("users", JSON.stringify(objL));
+                window.location.href="../Home/index.html";
 
             }
           }
