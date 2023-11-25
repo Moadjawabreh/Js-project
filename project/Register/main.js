@@ -24,27 +24,27 @@ submitRegister.addEventListener("click", function (event) {
 
     let toCheck = [];
     
-    if (!/^[A-Za-z]+$/.test(firstName)) {
+    if (!/^[A-Za-z]+$/.test(firstName.trim())) {
         firstNameError.textContent = "Only letters are allowed.";
         toCheck.push("has error");
     }
 
-    if (!/^[A-Za-z]+$/.test(lastName)) {
+    if (!/^[A-Za-z]+$/.test(lastName.trim())) {
         lastNameError.textContent = "Only letters are allowed.";
         toCheck.push("has error");
     }
 
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.trim())) {
         emailError.textContent = "Invalid email address.";
         toCheck.push("has error");
     }
 
-    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/.test(password)) {
+    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,32}$/.test(password.trim())) {
         passwordError.textContent = "Password must meet the specified criteria.";
         toCheck.push("has error");
     }
 
-    if (password !== confirmPassword) {
+    if (password !== confirmPassword.trim()) {
         confirmPasswordError.textContent = "Password and confirm password do not match.";
         toCheck.push("has error");
     }
