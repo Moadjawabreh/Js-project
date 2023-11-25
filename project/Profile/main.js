@@ -74,6 +74,7 @@
                 objL[i].city=cityInput.value;
                 objL[i].phone=phoneNumberInput.value;
                 objL[i].image=image.src;
+                
 
                 sessionStorage.setItem("liveUser", JSON.stringify(objL[i]));
                 localStorage.setItem("users", JSON.stringify(objL));

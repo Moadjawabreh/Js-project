@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addTrainers.addEventListener('click', () => {
         window.location.href = '../Register/index.html';
     })
+    
 })
 
 // Load trainers

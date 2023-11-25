@@ -10,8 +10,8 @@ submitRegister.addEventListener("click", function (event) {
     let password = document.getElementById("password").value;
     let age = document.getElementById("age").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
-    let city = document.getElementById("city").value;
-    let phone = document.getElementById("phone").value;
+    // let city = document.getElementById("city").value;
+    // let phone = document.getElementById("phone").value;
     let type = "trainer";
 
     // for validations
@@ -60,8 +60,8 @@ submitRegister.addEventListener("click", function (event) {
         email,
         password,
         age,
-        city,
-        phone,
+        // city,
+        // phone,
         type
     };
 

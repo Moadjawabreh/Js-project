@@ -11,7 +11,6 @@ const adminUser=[{
     type:"superAdmin"
 }];
 
-
 if(!localStorage.getItem("users"))
 {   
     const JsonData=JSON.stringify(adminUser);
