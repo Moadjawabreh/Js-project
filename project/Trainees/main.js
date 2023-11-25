@@ -1,8 +1,9 @@
+let count;
 document.addEventListener('DOMContentLoaded', ()=>{
 
     if(!localStorage.getItem("countForStudents"))
     {
-        let count=0;
+        count=0;
         localStorage.setItem("countForStudents",count); 
     }
 
