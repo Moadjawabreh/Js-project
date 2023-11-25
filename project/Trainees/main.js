@@ -19,25 +19,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         }
         let count=JSON.parse(localStorage.getItem("countForStudents"));
-        let saveAddStudent = document.getElementById('saveAddStudent')
-        let studentName = document.getElementById("studentName");
-        let taskInput=document.getElementById("taskInput");
-        let absent = document.getElementById('absent');
-        
+        let saveAddStudent = document.getElementById('saveAddStudent');
+       
         saveAddStudent.addEventListener('click', () => {
+            let studentName = document.getElementById("studentName").value;
+            let taskInput=document.getElementById("taskInput").value;
+            let absent = document.getElementById('absent').value;
+
+            console.log(studentName);
+
+            if(studentName === ''){
             let totalTasks = 0;
             if(studentName.value === ''){
                 console.log(studentName)
                 alert("Please enter a valid numeric task.");
-            } else if (taskInput.value === '') {
+            } else if (taskInput === '') {
                 console.log(taskInput)
                 alert("Please enter a valid numeric task.");
-            } else if (absent.value === '') {
+            } else if (absent === '') {
                 console.log(absent)
                 alert("Please enter a valid numeric task.");
             } else {
                 inputsStudent.style.display = 'none'
-                count++;
+                count+=1;
                 let id=count;
                 let solvedTasks=0;
                 let jsonData=JSON.parse(sessionStorage.getItem("liveUser"));
@@ -48,7 +52,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             id,
                             studentName,
                             solvedTasks,
-                            totalTasks,
+                            taskInput,
                             absent,
                             supervisor,
                             supervisorId
@@ -59,7 +63,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         id,
                         studentName,
                         solvedTasks,
-                        totalTasks,
+                        taskInput,
                         absent,
                         supervisor,
                         supervisorId
@@ -68,8 +72,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     students.push(student);
                     localStorage.setItem("students",JSON.stringify(students));
                 }
-            }
+            }}
         })
+        
     })
 
     let tbody = document.getElementById('tbody')
@@ -80,10 +85,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(student.supervisorId === user.id) {
             let tableRow=document.createElement("tr");
             tableRow.innerHTML=`<td id="studentId">${student.id}</td>
-                                <td>${student.name}</td>
+                                <td>${student.studentName}</td>
                                 <td class="addSolvedTask">${student.solvedTasks} <button id="addSolvedTask"><i class="fa fa-save" aria-hidden="true"></i></button></td>
-                                <td class="taskNumber">${student.totalTasks}</td>
-                                <td>${student.absences} <button id="addAbsencesTask"><i class="fa fa-save" aria-hidden="true"></i></button>\</td>
+                                <td class="taskNumber">${student.taskInput}</td>
+                                <td>${student.absent} <button id="addAbsencesTask"><i class="fa fa-save" aria-hidden="true"></i></button>\</td>
                                 <td><button id="deleteStudent"><i class="fa-solid fa-trash"></i></button></td>`;
             tbody.appendChild(tableRow);  
             }

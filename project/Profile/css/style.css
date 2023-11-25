@@ -140,6 +140,9 @@ html, body {
 .informationUser form input[type="submit"]:hover {
     background-color: #2980b9;
 }
+
+
+
 @media screen and (max-width: 768px) {
     .profile .boxLogo {
         width: 90%;
