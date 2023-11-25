@@ -54,8 +54,10 @@
             white-space: nowrap;
         }
 
-        .nav-item img {
+        .nav-item div {
             border-radius: 50%;
+            height:10vh ;
+            width: 10vh;
         }
 
         .nav-item {
@@ -102,7 +104,7 @@
     <div>
         <div class="navbar">
             <div class="nav-item">
-                <img alt="img" src="">
+                <div id="img"></div>
             </div>
             <div class="nav-item" id="home">
                 <a href="../home/index.html">
@@ -144,10 +146,9 @@
     </div>
 
 <script>
-        function toggleNavbar() {
+        function toggleNavbar() {            
             let navbar = document.querySelector('.navbar');
             navbar.classList.toggle('navbar-hidden');
-
             let btn = document.getElementById("btn");
             btn.classList.toggle('newPostion');
             btn.textContent = btn.textContent === '<' ? '>' : '<';
@@ -155,6 +156,13 @@
         }
         let studentORTrener = document.getElementById("studentORTrener");
         let liveUser = JSON.parse(sessionStorage.getItem("liveUser"));
+
+
+           // moad edit
+           let img=document.getElementById("img");
+            img.style.backgroundImage=`url('${liveUser.image}')`;
+            img.style.backgroundSize="cover";
+            img.style.backgroundPosition= "center";
 
         if (liveUser && liveUser.type === "superAdmin") {
             if (studentORTrener) {
