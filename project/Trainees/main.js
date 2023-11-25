@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', ()=>{
 
-    if(!localStorage.getItem("countForStudents"))
+if(!localStorage.getItem("countForStudents"))
     {
         let count=0;
         localStorage.setItem("countForStudents",count); 
     }
+document.addEventListener('DOMContentLoaded', ()=>{
 
     let addStudent = document.getElementById('addStudent')
     addStudent.addEventListener('click', () => {
@@ -23,12 +23,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
        
         saveAddStudent.addEventListener('click', () => {
             let studentName = document.getElementById("studentName").value;
-            let taskInput=document.getElementById("taskInput").value;
-            let absent = document.getElementById('absent').value;
+            let taskInput=parseInt(document.getElementById("taskInput").value);
+            let absent = parseInt(document.getElementById('absent').value);
 
             console.log(studentName);
-            let totalTasks = 0;
-            if(studentName === ''){
+            
             if(studentName.value === ''){
                 console.log(studentName)
                 alert("Please enter a valid numeric task.");
@@ -36,11 +35,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 console.log(taskInput)
                 alert("Please enter a valid numeric task.");
             } else if (absent === '') {
-                console.log(absent)
+                console.log(absent);
                 alert("Please enter a valid numeric task.");
             } else {
-                inputsStudent.style.display = 'none'
-                count+=1;
+                inputsStudent.style.display = 'none';
+                let count=JSON.parse(localStorage.getItem("countForStudents"));
+                count++;
                 let id=count;
                 let solvedTasks=0;
                 let jsonData=JSON.parse(sessionStorage.getItem("liveUser"));
@@ -70,29 +70,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     const students=JSON.parse(localStorage.getItem("students"));
                     students.push(student);
                     localStorage.setItem("students",JSON.stringify(students));
+                    location.reload();
                 }
-            }}
+                localStorage.setItem("countForStudents",count);
+            }
         })
         
     })
 
-    let tbody = document.getElementById('tbody')
-    const students=JSON.parse(localStorage.getItem("students"));
-    if(students){
-        let user=JSON.parse(sessionStorage.getItem("liveUser"));
-        for (let student of students) {
-        if(student.supervisorId === user.id) {
-            let tableRow=document.createElement("tr");
-            tableRow.innerHTML=`<td id="studentId">${student.id}</td>
-                                <td>${student.studentName}</td>
-                                <td class="addSolvedTask">${student.solvedTasks} <button id="addSolvedTask"><i class="fa fa-save" aria-hidden="true"></i></button></td>
-                                <td class="taskNumber">${student.taskInput}</td>
-                                <td>${student.absent} <button id="addAbsencesTask"><i class="fa fa-save" aria-hidden="true"></i></button>\</td>
-                                <td><button id="deleteStudent"><i class="fa-solid fa-trash"></i></button></td>`;
-            tbody.appendChild(tableRow);  
+    forShowingStudents=()=>{
+        let tbody = document.getElementById('tbody')
+        const students=JSON.parse(localStorage.getItem("students"));
+        if(students){
+            let user=JSON.parse(sessionStorage.getItem("liveUser"));
+            for (let student of students) {
+            if(student.supervisorId === user.id) {
+                let tableRow=document.createElement("tr");
+                tableRow.innerHTML=`<td id="studentId">${student.id}</td>
+                                    <td>${student.studentName}</td>
+                                    <td>${student.solvedTasks} <button class="addSolvedTask" data-id="${student.id}">+</button></td>
+                                    <td class="taskNumber">${student.taskInput}</td>
+                                    <td>${student.absent} <button class="addAbsencesTask" data-id="${student.id}">+</button>\</td>
+                                    <td><button class="deleteStudent" data-id="${student.id}">Delete</button></td>`;
+                tbody.appendChild(tableRow);  
+                }
             }
         }
     }
+
+    forShowingStudents();
+   
 
 
     let addTask = document.getElementById('addTask');
@@ -111,10 +118,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
             inputsAddTaskFeedback.style.display = 'none';
             inputsAddTask.style.display = 'none';
         }
-    
-        let saveAddTask = document.getElementById('saveAddTask');
+    });
+
+    let saveAddTask = document.getElementById('saveAddTask');
         saveAddTask.addEventListener('click', () => {
-            let inputAddTask = document.getElementById("inputAddTask").value.trim();
+            let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
+            let inputAddTask = parseInt(document.getElementById("inputAddTask").value);
             
             if (!inputAddTask || isNaN(inputAddTask) ||  inputAddTask < 0) {
                 alert("Please enter a valid numeric task.");
@@ -125,14 +134,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
             const students = JSON.parse(localStorage.getItem("students"));
             let user = JSON.parse(sessionStorage.getItem("liveUser"));
             if (students) {
-                for (let student of students) {
+                for (const student of students) {
                     if (student.supervisorId === user.id) {
-                        student.totalTasks += parseInt(inputAddTask);
+                        student.taskInput +=inputAddTask;
                     }
                 }
+                localStorage.setItem("students",JSON.stringify(students));
             }
+            location.reload();
+
         });
-    });
 
     let feedback = document.getElementById('feedback');
     feedback.addEventListener('click', () => {
@@ -151,10 +162,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         }
 
+    });
 
-        let saveAddFeedback = document.getElementById('saveAddFeedback');
+    let saveAddFeedback = document.getElementById('saveAddFeedback');
         saveAddFeedback.addEventListener('click', () => {
-            
+            let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
             let studentsNamesSelect = document.getElementById('studentsNamesSelect').value.trim();
             console.log(studentsNamesSelect)
             if (!studentsNamesSelect) {
@@ -163,19 +175,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
                 inputsAddTaskFeedback.style.display = 'none';
 
-                let namesFeedback = document.getElementById('namesFeedback')
+                let studentName = document.getElementById('namesFeedback').value;
                 let user=JSON.parse(sessionStorage.getItem("liveUser"));
                 let trainer=`${user.firstName} ${user.lastName}`;
                 let feedBack=document.getElementById("studentsNamesSelect").value;
-                let date =date();
-            
+                let current =new Date();
+                let date = current.toLocaleDateString();
+                let trainerId=user.id;
                 if(!localStorage.getItem("feedbacks"))
                 {
                     const feedback=[{
-                        namesFeedback,
+                        studentName,
                         trainer,
                         feedBack,
-                        date
+                        date,
+                        trainerId
                     }];
             
                     localStorage.setItem("feedbacks",JSON.stringify(feedback));
@@ -183,70 +197,98 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 else
                 {
                     const feedback={
-                        namesFeedback,
+                        studentName,
                         trainer,
                         feedBack,
-                        date
+                        date,
+                        trainerId
                     };
                     const feedbacks=JSON.parse(localStorage.getItem("feedbacks"));
-                    students.push(feedback);
+                    feedbacks.push(feedback);
                     localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
                 }               
             }
         });
-    });
 
-    let addSolvedTask = document.getElementById('addSolvedTask')
-    let addAbsencesTask = document.getElementById('addAbsencesTask')
-    let deleteStudent = document.getElementById('deleteStudent')
-
-    if(addSolvedTask && addAbsencesTask){
-        addSolvedTask.addEventListener('click', () => {
-            let studentId=document.getElementById("studentId").value;
-            
-            if(students){
-                for (let student of students){
-                if(student.id==studentId){
+    addSolvedTasks=(studentId)=>{
+        if(students)
+        {
+            for (let student of students)
+            {
+                if(student.id===studentId){
                     student.solvedTasks+=1;
                 }
             }
-            }
-        })
-        addAbsencesTask.addEventListener('click', () => {
-            let studentId=document.getElementById("studentId").value;
-            const students=JSON.parse(localStorage.getItem("students"));
-            for (let student of students)
-            {
-                if(student.id==studentId)
-                {
-                    student.absences+=1;
-                }
-            }
-        })
-
-        deleteStudent.addEventListener('click', () => {
-            let studentId=document.getElementById("studentId").value;
-            const students=JSON.parse(localStorage.getItem("students"));
-            for(const [student,index] of students.entries())
-            {
-                if(student.id === studentId)
-                {
-                    student.splice(index,1);
-                    break;
-                }
-            }
-            localStorage.setItem("students",JSON.stringify(students));
-        })
+        }
+        localStorage.setItem("students",JSON.stringify(students));
     }
+        
+  
+    addAbsent=(studentId)=>{
+        const students=JSON.parse(localStorage.getItem("students"));
+        for (let student of students)
+        {
+            if(student.id===studentId)
+            {
+                student.absent+=1;
+            }
+        }
+        localStorage.setItem("students",JSON.stringify(students));
+    }
+        
+
+    deleteStudent=(studentId)=>{
+        const students=JSON.parse(localStorage.getItem("students"));
+        for(let i=0;;i++)
+        {
+            if(students[i].id===studentId)
+            {
+                students.splice(i, 1);
+                break;
+            }
+        }
+        localStorage.setItem("students",JSON.stringify(students));
+    }
+   
+
+    document.getElementById('tbody').addEventListener('click', function (event) {
+        if (event.target.classList.contains('addSolvedTask')) {
+            let studentId = parseInt(event.target.dataset.id);
+    
+            // Call the deleteUser function with the id
+            addSolvedTasks(studentId);
+    
+            // Update the table to reflect the change
+            location.reload();
+    
+            } else if (event.target.classList.contains('addAbsencesTask')) {
+                let studentId =parseInt(event.target.dataset.id);
+                addAbsent(studentId);
+                location.reload();
+                
+            }
+            else if(event.target.classList.contains('deleteStudent')){
+                let studentId = parseInt(event.target.dataset.id);
+                deleteStudent(studentId);
+                location.reload();
+            }
+        });
+
+
+   
+
+        
+        
 
     let namesFeedback=document.getElementById("namesFeedback");
     let trainer=JSON.parse(sessionStorage.getItem("liveUser"));
+    const students=JSON.parse(localStorage.getItem("students"));
     if(students && trainer){
         for(let student of students){
         if(student.supervisorId===trainer.id){
-            let option=createElement("option");
-            option.value=`${student.name}`;
-            option.text=`${student.name}`;
+            let option=document.createElement("option");
+            option.value=`${student.studentName}`;
+            option.text=`${student.studentName}`;
             namesFeedback.appendChild(option);
         }
     }

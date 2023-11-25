@@ -70,5 +70,7 @@ submitRegister.addEventListener("click", function (event) {
     users.push(trainer);
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("count", JSON.stringify(count));
+
+    window.location.href="../Trainers/index.html";
 });
 
