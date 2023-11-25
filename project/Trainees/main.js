@@ -1,95 +1,81 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
 
-    if(!localStorage.getItem("countForStudents"))
-    {
-        let count=0;
-        localStorage.setItem("countForStudents",count); 
+    // Check and initialize countForStudents in localStorage
+    if (!localStorage.getItem("countForStudents")) {
+        let count = 0;
+        localStorage.setItem("countForStudents", JSON.stringify(count));
     }
 
-    let addStudent = document.getElementById('addStudent')
+    let addStudent = document.getElementById('addStudent');
+    let tbody = document.getElementById('tbody');
+    let namesFeedbackSelect = document.getElementById('namesFeedback');
+
     addStudent.addEventListener('click', () => {
-        let inputsStudent = document.querySelector('.inputsStudent')
+        let inputsStudent = document.querySelector('.inputsStudent');
         let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
-        
-        if(inputsStudent.style.display === 'block'){
-            inputsStudent.style.display = 'none'
+
+        if (inputsStudent.style.display === 'block') {
+            inputsStudent.style.display = 'none';
         } else {
-            inputsStudent.style.display = 'block'
-            inputsAddTaskFeedback.style.display = 'none'
-
+            inputsStudent.style.display = 'block';
+            inputsAddTaskFeedback.style.display = 'none';
         }
-        let count=JSON.parse(localStorage.getItem("countForStudents"));
-        let saveAddStudent = document.getElementById('saveAddStudent')
-        let studentName = document.getElementById("studentName");
-        let taskInput=document.getElementById("taskInput");
-        let absent = document.getElementById('absent');
-        
-        saveAddStudent.addEventListener('click', () => {
-            let totalTasks = 0;
-            if(studentName.value === ''){
-                console.log(studentName)
-                alert("Please enter a valid numeric task.");
-            } else if (taskInput.value === '') {
-                console.log(taskInput)
-                alert("Please enter a valid numeric task.");
-            } else if (absent.value === '') {
-                console.log(absent)
-                alert("Please enter a valid numeric task.");
-            } else {
-                inputsStudent.style.display = 'none'
-                count++;
-                let id=count;
-                let solvedTasks=0;
-                let jsonData=JSON.parse(sessionStorage.getItem("liveUser"));
-                let supervisor=jsonData.firstName;
-                let supervisorId=jsonData.id;
-                if(!localStorage.getItem("students")){
-                        const students=[{
-                            id,
-                            studentName,
-                            solvedTasks,
-                            totalTasks,
-                            absent,
-                            supervisor,
-                            supervisorId
-                        }];
-                    localStorage.setItem("students",JSON.stringify(students));
-                    } else {
-                        const student={
-                        id,
-                        studentName,
-                        solvedTasks,
-                        totalTasks,
-                        absent,
-                        supervisor,
-                        supervisorId
-                    };
-                    const students=JSON.parse(localStorage.getItem("students"));
-                    students.push(student);
-                    localStorage.setItem("students",JSON.stringify(students));
-                }
-            }
-        })
-    })
 
-    let tbody = document.getElementById('tbody')
-    const students=JSON.parse(localStorage.getItem("students"));
-    if(students){
-        let user=JSON.parse(sessionStorage.getItem("liveUser"));
-        for (let student of students) {
-        if(student.supervisorId === user.id) {
-            let tableRow=document.createElement("tr");
-            tableRow.innerHTML=`<td id="studentId">${student.id}</td>
-                                <td>${student.name}</td>
-                                <td class="addSolvedTask">${student.solvedTasks} <button id="addSolvedTask"><i class="fa fa-save" aria-hidden="true"></i></button></td>
-                                <td class="taskNumber">${student.totalTasks}</td>
-                                <td>${student.absences} <button id="addAbsencesTask"><i class="fa fa-save" aria-hidden="true"></i></button>\</td>
-                                <td><button id="deleteStudent"><i class="fa-solid fa-trash"></i></button></td>`;
-            tbody.appendChild(tableRow);  
+        let count = JSON.parse(localStorage.getItem("countForStudents"));
+        let saveAddStudent = document.getElementById('saveAddStudent');
+        let studentName = document.getElementById("studentName");
+        let taskInput = document.getElementById("taskInput");
+        let absent = document.getElementById('absent');
+
+        saveAddStudent.addEventListener('click', () => {
+            if (!studentName.value || !taskInput.value || !absent.value) {
+                alert("Please enter valid information.");
+            } else {
+                inputsStudent.style.display = 'none';
+                count++;
+                let id = count;
+                let solvedTasks = 0;
+                let totalTasks = 0;
+                let supervisor = "Supervisor"; // Assuming you set the supervisor name here
+                let supervisorId = 1; // Assuming you set the supervisor ID here
+
+                let student = {
+                    id,
+                    studentName: studentName.value,
+                    solvedTasks,
+                    totalTasks,
+                    absent: absent.value,
+                    supervisor,
+                    supervisorId
+                };
+
+                // Retrieve existing students from localStorage or initialize an empty array
+                let students = JSON.parse(localStorage.getItem("students")) || [];
+                students.push(student);
+                localStorage.setItem("students", JSON.stringify(students));
+
+                // Update the count for students in localStorage
+                localStorage.setItem("countForStudents", JSON.stringify(count));
             }
+        });
+    });
+
+    // Load students into the table
+    const students = JSON.parse(localStorage.getItem("students")) || [];
+    let user = JSON.parse(sessionStorage.getItem("liveUser"));
+
+    for (let student of students) {
+        if (student.supervisorId === user.id) {
+            let tableRow = document.createElement("tr");
+            tableRow.innerHTML = `<td>${student.id}</td>
+                                <td>${student.studentName}</td>
+                                <td class="addSolvedTask">${student.solvedTasks} <button class="addSolvedTaskBtn"><i class="fa fa-save" aria-hidden="true"></i></button></td>
+                                <td class="taskNumber">${student.totalTasks}</td>
+                                <td>${student.absent} <button class="addAbsencesTaskBtn"><i class="fa fa-save" aria-hidden="true"></i></button></td>
+                                <td><button class="deleteStudentBtn"><i class="fa-solid fa-trash"></i></button></td>`;
+            tbody.appendChild(tableRow);
         }
     }
-
 
     let addTask = document.getElementById('addTask');
     addTask.addEventListener('click', () => {
@@ -97,35 +83,34 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
         let inputsAddTask = document.getElementById('inputs-addTask');
         let inputsFeedback = document.getElementById('inputs-feedback');
-    
-        if (inputsAddTaskFeedback.style.display === 'none' && inputsAddTask.style.display === 'none') {
+
+        if (inputsAddTaskFeedback.style.display === 'none' || inputsAddTask.style.display === 'none') {
             inputsAddTaskFeedback.style.display = 'block';
             inputsAddTask.style.display = 'block';
             inputsFeedback.style.display = 'none';
             inputsStudent.style.display = 'none';
         } else {
             inputsAddTaskFeedback.style.display = 'none';
-            inputsAddTask.style.display = 'none';
         }
-    
+
         let saveAddTask = document.getElementById('saveAddTask');
         saveAddTask.addEventListener('click', () => {
             let inputAddTask = document.getElementById("inputAddTask").value.trim();
-    
-            if (!inputAddTask || isNaN(inputAddTask) ||  inputAddTask < 0) {
+
+            if (!inputAddTask || isNaN(inputAddTask) || inputAddTask < 0) {
                 alert("Please enter a valid numeric task.");
             } else {
                 inputsAddTaskFeedback.style.display = 'none';
-            }
-    
-            const students = JSON.parse(localStorage.getItem("students"));
-            let user = JSON.parse(sessionStorage.getItem("liveUser"));
-            if (students) {
-                for (let student of students) {
+
+                // Update totalTasks for all students of the current supervisor
+                students.forEach(student => {
                     if (student.supervisorId === user.id) {
                         student.totalTasks += parseInt(inputAddTask);
                     }
-                }
+                });
+
+                // Save updated students to localStorage
+                localStorage.setItem("students", JSON.stringify(students));
             }
         });
     });
@@ -144,77 +129,116 @@ document.addEventListener('DOMContentLoaded', ()=>{
             inputsStudent.style.display = 'none';
         } else {
             inputsAddTaskFeedback.style.display = 'none';
-
         }
 
         let saveAddFeedback = document.getElementById('saveAddFeedback');
         saveAddFeedback.addEventListener('click', () => {
             let studentsNamesSelect = document.getElementById('studentsNamesSelect').value.trim();
-            if (!studentsNamesSelect) {
+            let feedbackText = document.getElementById('studentsNamesSelect').value.trim();
+
+            if (!studentsNamesSelect || !feedbackText) {
                 alert("Please enter valid feedback.");
             } else {
-                inputsAddTaskFeedback.style.display = 'none';   
+                inputsAddTaskFeedback.style.display = 'none';
+
+                // Save feedback to localStorage
+                let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+                let user = JSON.parse(sessionStorage.getItem("liveUser"));
+                let trainer = `${user.firstName} ${user.lastName}`;
+                let date = new Date().toLocaleDateString();
+
+                let feedback = {
+                    namesFeedback: studentsNamesSelect,
+                    trainer,
+                    feedbackText,
+                    date
+                };
+
+                feedbacks.push(feedback);
+                localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
             }
+        });
     });
-});
 
-    let addSolvedTask = document.getElementById('addSolvedTask')
-    let addAbsencesTask = document.getElementById('addAbsencesTask')
-    let deleteStudent = document.getElementById('deleteStudent')
+    // Event delegation for dynamic elements
+    tbody.addEventListener('click', (event) => {
+        let target = event.target;
 
-    if(addSolvedTask && addAbsencesTask){
-        addSolvedTask.addEventListener('click', () => {
-            let studentId=document.getElementById("studentId").value;
-            
-            if(students){
-                for (let student of students){
-                if(student.id==studentId){
-                    student.solvedTasks+=1;
-                }
-            }
-            }
-        })
-        addAbsencesTask.addEventListener('click', () => {
-            let studentId=document.getElementById("studentId").value;
-            const students=JSON.parse(localStorage.getItem("students"));
-            for (let student of students)
-            {
-                if(student.id==studentId)
-                {
-                    student.absences+=1;
-                }
-            }
-        })
+        if (target.classList.contains('addSolvedTaskBtn')) {
+            addSolvedTask(target);
+        } else if (target.classList.contains('addAbsencesTaskBtn')) {
+            addAbsencesTask(target);
+        } else if (target.classList.contains('deleteStudentBtn')) {
+            deleteStudent(target);
+        }
+    });
 
-        deleteStudent.addEventListener('click', () => {
-            let studentId=document.getElementById("studentId").value;
-            const students=JSON.parse(localStorage.getItem("students"));
-            for(const [student,index] of students.entries())
-            {
-                if(student.id === studentId)
-                {
-                    student.splice(index,1);
-                    break;
-                }
-            }
-            localStorage.setItem("students",JSON.stringify(students));
-        })
+    // Function to add solved task
+    function addSolvedTask(button) {
+        let row = button.closest('tr');
+        let studentId = row.querySelector('td').textContent;
 
+        students.forEach(student => {
+            if (student.id === parseInt(studentId)) {
+                student.solvedTasks += 1;
+                localStorage.setItem("students", JSON.stringify(students));
+                updateTable();
+            }
+        });
     }
 
-    let namesFeedback = document.getElementById('namesFeedback')
-    let studentsList = JSON.parse(localStorage.getItem("students"));
-    if(studentsList){
-        let trainer = JSON.parse(sessionStorage.getItem("liveUser"));
-        for(let student of studentsList)
-        {
-            if(student.supervisorId===trainer.id)
-            {
-                let option=createElement("option");
-                option.value=`${student.name}`;
-                option.text=`${student.name}`;
-                namesFeedback.appendChild(option);
+    // Function to add absences task
+    function addAbsencesTask(button) {
+        let row = button.closest('tr');
+        let studentId = row.querySelector('td').textContent;
+
+        students.forEach(student => {
+            if (student.id === parseInt(studentId)) {
+                student.absent += 1;
+                localStorage.setItem("students", JSON.stringify(students));
+                updateTable();
+            }
+        });
+    }
+
+    // Function to delete student
+    function deleteStudent(button) {
+        let row = button.closest('tr');
+        let studentId = row.querySelector('td').textContent;
+
+        students.forEach((student, index) => {
+            if (student.id === parseInt(studentId)) {
+                students.splice(index, 1);
+                localStorage.setItem("students", JSON.stringify(students));
+                updateTable();
+            }
+        });
+    }
+
+    // Update the table after modifying data
+    function updateTable() {
+        tbody.innerHTML = "";
+        for (let student of students) {
+            if (student.supervisorId === user.id) {
+                let tableRow = document.createElement("tr");
+                tableRow.innerHTML = `<td>${student.id}</td>
+                                    <td>${student.studentName}</td>
+                                    <td class="addSolvedTask">${student.solvedTasks} <button class="addSolvedTaskBtn"><i class="fa fa-save" aria-hidden="true"></i></button></td>
+                                    <td class="taskNumber">${student.totalTasks}</td>
+                                    <td>${student.absent} <button class="addAbsencesTaskBtn"><i class="fa fa-save" aria-hidden="true"></i></button></td>
+                                    <td><button class="deleteStudentBtn"><i class="fa-solid fa-trash"></i></button></td>`;
+                tbody.appendChild(tableRow);
             }
         }
     }
-})
+
+    // Populate namesFeedback dropdown
+    for (let student of students) {
+        if (student.supervisorId === user.id) {
+            let option = document.createElement("option");
+            option.value = student.studentName;
+            option.text = student.studentName;
+            namesFeedbackSelect.appendChild(option);
+        }
+    }
+});
