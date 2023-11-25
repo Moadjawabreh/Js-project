@@ -72,8 +72,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     students.push(student);
                     localStorage.setItem("students",JSON.stringify(students));
                 }
-            }
+            }}
         })
+        
     })
 
     let tbody = document.getElementById('tbody')
