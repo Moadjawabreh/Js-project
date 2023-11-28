@@ -1,4 +1,3 @@
-// document.addEventListener("DOMContentLoaded",function () {
 
     let submit=document.getElementById("submitPrifile");
 
@@ -27,7 +26,6 @@
         imgInput.style.backgroundPosition= "center";
 
     }
-    // imgInput.style.backgroundColor=url(`${objSession.image}`);
     
     document.getElementById("profilePhoto").addEventListener("click",function () {
         var input = document.createElement('input');
@@ -52,8 +50,7 @@
                 reader.readAsDataURL(file);
 
             }
-        
-        
+    
     });
     input.click();
 
@@ -95,9 +92,3 @@
           
 
     });
-
-    
-    
-// });
-
-   

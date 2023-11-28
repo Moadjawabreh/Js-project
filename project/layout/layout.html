@@ -97,62 +97,7 @@
             left: 0;
         }
 
-        @media screen and (max-width: 768px) {
-        body {
-            grid-template-columns: 100%; /* Change to a single column layout */
-        }
 
-        .navbar {
-            height: auto; /* Allow the navbar to expand based on content */
-        }
-
-        .nav-item {
-            margin: 5% 0; /* Adjust margin for smaller screens */
-        }
-
-        .nav-item:last-child {
-            position: relative; /* Remove absolute positioning for last child */
-            bottom: auto; /* Reset bottom position */
-            white-space: normal; /* Allow wrapping for smaller screens */
-        }
-
-        .toggle-button {
-            display: block; /* Show the toggle button on smaller screens */
-        }
-
-        .navbar-hidden {
-            transform: translateX(0); /* Ensure the navbar is visible by default */
-        }
-
-        .asdc {
-            left: 0; /* Adjust position for smaller screens */
-        }
-    }
-
-
-        
-        @media screen and (max-width: 390px) {
-            .navbar {
-                padding: 15px;
-                height: auto;
-            }
-
-            .nav-item {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-                margin: 0;
-            }
-
-            .toggle-button {
-                position: static;
-                transform: translateX(0);
-            }
-
-            .navbar-hidden {
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 

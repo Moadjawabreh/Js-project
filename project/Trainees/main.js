@@ -1,12 +1,12 @@
-
 if(!localStorage.getItem("countForStudents"))
     {
         let count=0;
         localStorage.setItem("countForStudents",count); 
     }
 document.addEventListener('DOMContentLoaded', ()=>{
+    let addStudent = document.getElementById('addStudent');
 
-    let addStudent = document.getElementById('addStudent')
+    searchByName.addEventListener('click',searchByName)
     addStudent.addEventListener('click', () => {
         let inputsStudent = document.querySelector('.inputsStudent')
         let inputsAddTaskFeedback = document.getElementById('inputs-addTask-feedback');
