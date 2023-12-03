@@ -5,6 +5,107 @@
     box-sizing: border-box;
 }
 
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url("matthew-mcbrayer-qD9xzm7yK9U-unsplash.jpg");
+
+}
+#btn{
+    height: 5vh;
+    width: 10vh;
+    background-color: tomato;
+}
+
+.registraion{
+width :100vh;
+height :80vh;
+border  :1px solid aliceblue;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+border-Radius :5px;
+display: flex;
+justify-content: center;
+display: none;
+
+
+}
+
+
+
+/* Title */
+h1 {
+font-size: 24px;
+font-weight: bold;
+color: #333;
+text-align: center;
+margin-bottom: 20px;
+}
+
+
+
+/* Input fields */
+input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+font-size: 14px;
+margin-bottom: 15px;
+}
+
+#firstName,
+#lastName {
+width: 49%; 
+display: inline-block;
+}
+
+#lastName {
+margin-right: 0;
+}
+
+
+#age, #city {
+width: 49%;
+}
+
+#phoneNumber {
+width: 50%;
+}
+
+/* Input fields on focus */
+input:focus {
+outline: none;
+border-color: #007bff;
+}
+
+/* Error messages */
+.error-message {
+font-size: 12px;
+color: red;
+margin-bottom: 5px;
+}
+
+#submitRegister {
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
+}
+
+#submitRegister:hover {
+background-color: #0069d9;
+}
+
+
 html, body{
     width: 100%;
     height: 100%;
